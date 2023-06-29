@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		411127042A3E4914000ABD7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411127032A3E4914000ABD7D /* AppDelegate.swift */; };
+		411127062A3E4914000ABD7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411127052A3E4914000ABD7D /* SceneDelegate.swift */; };
+		411127082A3E4914000ABD7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411127072A3E4914000ABD7D /* ViewController.swift */; };
+		4111270B2A3E4914000ABD7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411127092A3E4914000ABD7D /* Main.storyboard */; };
+		4111270D2A3E4916000ABD7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4111270C2A3E4916000ABD7D /* Assets.xcassets */; };
+		411127102A3E4916000ABD7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4111270E2A3E4916000ABD7D /* LaunchScreen.storyboard */; };
+		4111271D2A3E496E000ABD7D /* SurahTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111271B2A3E496E000ABD7D /* SurahTableViewCell.swift */; };
+		4111271E2A3E496E000ABD7D /* SurahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111271C2A3E496E000ABD7D /* SurahViewController.swift */; };
+		411127212A3E499F000ABD7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 411127202A3E499F000ABD7D /* SnapKit */; };
+		411127272A3E49FA000ABD7D /* Surah.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411127262A3E49FA000ABD7D /* Surah.swift */; };
+		411127292A3E4A13000ABD7D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411127282A3E4A13000ABD7D /* APICaller.swift */; };
+		4125794E2A3EF94500533A8B /* SurahDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125794D2A3EF94500533A8B /* SurahDescriptionViewController.swift */; };
+		412BDD6A2A4CD1A400587AC4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412BDD692A4CD1A400587AC4 /* CustomView.swift */; };
+		415D543D2A40C9B4007BE559 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D543C2A40C9B4007BE559 /* AudioViewController.swift */; };
+		415D543F2A40CB17007BE559 /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 415D543E2A40CB17007BE559 /* audio.mp3 */; };
+		419C30DF2A49C8FA00BB1EE6 /* SurahViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C30DE2A49C8FA00BB1EE6 /* SurahViewModel.swift */; };
+		419C30E12A4B759B00BB1EE6 /* DemoSurahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C30E02A4B759B00BB1EE6 /* DemoSurahViewController.swift */; };
+		419C30E32A4B79E000BB1EE6 /* SurahCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C30E22A4B79DF00BB1EE6 /* SurahCollectionViewCell.swift */; };
+		419C30E82A4B824B00BB1EE6 /* SurahDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C30E72A4B824B00BB1EE6 /* SurahDescriptionViewModel.swift */; };
+		41DB5E1B2A3F56C900BAE2C8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 41DB5E1A2A3F56C900BAE2C8 /* Alamofire */; };
+		41DC4D6B2A41B25F0009F119 /* SurahTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC4D6A2A41B25F0009F119 /* SurahTime.swift */; };
+		41DC4D6D2A41B37F0009F119 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC4D6C2A41B37F0009F119 /* TimeViewController.swift */; };
+		41DC4D6F2A41D9E90009F119 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC4D6E2A41D9E90009F119 /* Color.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		411127002A3E4914000ABD7D /* QuranKZUIKIT2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuranKZUIKIT2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		411127032A3E4914000ABD7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		411127052A3E4914000ABD7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		411127072A3E4914000ABD7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4111270A2A3E4914000ABD7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4111270C2A3E4916000ABD7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4111270F2A3E4916000ABD7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		411127112A3E4916000ABD7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4111271B2A3E496E000ABD7D /* SurahTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurahTableViewCell.swift; sourceTree = "<group>"; };
+		4111271C2A3E496E000ABD7D /* SurahViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurahViewController.swift; sourceTree = "<group>"; };
+		411127262A3E49FA000ABD7D /* Surah.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Surah.swift; sourceTree = "<group>"; };
+		411127282A3E4A13000ABD7D /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		4125794D2A3EF94500533A8B /* SurahDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahDescriptionViewController.swift; sourceTree = "<group>"; };
+		412BDD692A4CD1A400587AC4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		415D543C2A40C9B4007BE559 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		415D543E2A40CB17007BE559 /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
+		419C30DE2A49C8FA00BB1EE6 /* SurahViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahViewModel.swift; sourceTree = "<group>"; };
+		419C30E02A4B759B00BB1EE6 /* DemoSurahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSurahViewController.swift; sourceTree = "<group>"; };
+		419C30E22A4B79DF00BB1EE6 /* SurahCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahCollectionViewCell.swift; sourceTree = "<group>"; };
+		419C30E72A4B824B00BB1EE6 /* SurahDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahDescriptionViewModel.swift; sourceTree = "<group>"; };
+		41DC4D6A2A41B25F0009F119 /* SurahTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahTime.swift; sourceTree = "<group>"; };
+		41DC4D6C2A41B37F0009F119 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		41DC4D6E2A41D9E90009F119 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		411126FD2A3E4914000ABD7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				411127212A3E499F000ABD7D /* SnapKit in Frameworks */,
+				41DB5E1B2A3F56C900BAE2C8 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		411126F72A3E4914000ABD7D = {
+			isa = PBXGroup;
+			children = (
+				411127022A3E4914000ABD7D /* QuranKZUIKIT2 */,
+				411127012A3E4914000ABD7D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		411127012A3E4914000ABD7D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				411127002A3E4914000ABD7D /* QuranKZUIKIT2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		411127022A3E4914000ABD7D /* QuranKZUIKIT2 */ = {
+			isa = PBXGroup;
+			children = (
+				411127032A3E4914000ABD7D /* AppDelegate.swift */,
+				411127052A3E4914000ABD7D /* SceneDelegate.swift */,
+				41DC4D692A41B24A0009F119 /* Model */,
+				411127072A3E4914000ABD7D /* ViewController.swift */,
+				412BDD692A4CD1A400587AC4 /* CustomView.swift */,
+				411127092A3E4914000ABD7D /* Main.storyboard */,
+				415D543A2A4075A2007BE559 /* Manager */,
+				419C30E62A4B7B7A00BB1EE6 /* Constants */,
+				41DC4D6C2A41B37F0009F119 /* TimeViewController.swift */,
+				415D543E2A40CB17007BE559 /* audio.mp3 */,
+				419C30E52A4B7B6400BB1EE6 /* Views */,
+				419C30E42A4B7B5400BB1EE6 /* Controllers */,
+				4111270C2A3E4916000ABD7D /* Assets.xcassets */,
+				4111270E2A3E4916000ABD7D /* LaunchScreen.storyboard */,
+				411127112A3E4916000ABD7D /* Info.plist */,
+			);
+			path = QuranKZUIKIT2;
+			sourceTree = "<group>";
+		};
+		415D543A2A4075A2007BE559 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				411127282A3E4A13000ABD7D /* APICaller.swift */,
+				419C30DE2A49C8FA00BB1EE6 /* SurahViewModel.swift */,
+				419C30E72A4B824B00BB1EE6 /* SurahDescriptionViewModel.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		419C30E42A4B7B5400BB1EE6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4125794D2A3EF94500533A8B /* SurahDescriptionViewController.swift */,
+				415D543C2A40C9B4007BE559 /* AudioViewController.swift */,
+				419C30E02A4B759B00BB1EE6 /* DemoSurahViewController.swift */,
+				4111271C2A3E496E000ABD7D /* SurahViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		419C30E52A4B7B6400BB1EE6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				419C30E22A4B79DF00BB1EE6 /* SurahCollectionViewCell.swift */,
+				4111271B2A3E496E000ABD7D /* SurahTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		419C30E62A4B7B7A00BB1EE6 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				41DC4D6E2A41D9E90009F119 /* Color.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		41DC4D692A41B24A0009F119 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				411127262A3E49FA000ABD7D /* Surah.swift */,
+				41DC4D6A2A41B25F0009F119 /* SurahTime.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		411126FF2A3E4914000ABD7D /* QuranKZUIKIT2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 411127142A3E4916000ABD7D /* Build configuration list for PBXNativeTarget "QuranKZUIKIT2" */;
+			buildPhases = (
+				411126FC2A3E4914000ABD7D /* Sources */,
+				411126FD2A3E4914000ABD7D /* Frameworks */,
+				411126FE2A3E4914000ABD7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuranKZUIKIT2;
+			packageProductDependencies = (
+				411127202A3E499F000ABD7D /* SnapKit */,
+				41DB5E1A2A3F56C900BAE2C8 /* Alamofire */,
+			);
+			productName = QuranKZUIKIT2;
+			productReference = 411127002A3E4914000ABD7D /* QuranKZUIKIT2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		411126F82A3E4914000ABD7D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					411126FF2A3E4914000ABD7D = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 411126FB2A3E4914000ABD7D /* Build configuration list for PBXProject "QuranKZUIKIT2" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 411126F72A3E4914000ABD7D;
+			packageReferences = (
+				4111271F2A3E499F000ABD7D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				41DB5E192A3F56C900BAE2C8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			productRefGroup = 411127012A3E4914000ABD7D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				411126FF2A3E4914000ABD7D /* QuranKZUIKIT2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		411126FE2A3E4914000ABD7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				411127102A3E4916000ABD7D /* LaunchScreen.storyboard in Resources */,
+				4111270D2A3E4916000ABD7D /* Assets.xcassets in Resources */,
+				415D543F2A40CB17007BE559 /* audio.mp3 in Resources */,
+				4111270B2A3E4914000ABD7D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		411126FC2A3E4914000ABD7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				411127082A3E4914000ABD7D /* ViewController.swift in Sources */,
+				4111271D2A3E496E000ABD7D /* SurahTableViewCell.swift in Sources */,
+				419C30DF2A49C8FA00BB1EE6 /* SurahViewModel.swift in Sources */,
+				41DC4D6B2A41B25F0009F119 /* SurahTime.swift in Sources */,
+				411127042A3E4914000ABD7D /* AppDelegate.swift in Sources */,
+				411127292A3E4A13000ABD7D /* APICaller.swift in Sources */,
+				41DC4D6F2A41D9E90009F119 /* Color.swift in Sources */,
+				41DC4D6D2A41B37F0009F119 /* TimeViewController.swift in Sources */,
+				411127062A3E4914000ABD7D /* SceneDelegate.swift in Sources */,
+				412BDD6A2A4CD1A400587AC4 /* CustomView.swift in Sources */,
+				415D543D2A40C9B4007BE559 /* AudioViewController.swift in Sources */,
+				4125794E2A3EF94500533A8B /* SurahDescriptionViewController.swift in Sources */,
+				419C30E32A4B79E000BB1EE6 /* SurahCollectionViewCell.swift in Sources */,
+				4111271E2A3E496E000ABD7D /* SurahViewController.swift in Sources */,
+				419C30E82A4B824B00BB1EE6 /* SurahDescriptionViewModel.swift in Sources */,
+				411127272A3E49FA000ABD7D /* Surah.swift in Sources */,
+				419C30E12A4B759B00BB1EE6 /* DemoSurahViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		411127092A3E4914000ABD7D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4111270A2A3E4914000ABD7D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4111270E2A3E4916000ABD7D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4111270F2A3E4916000ABD7D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		411127122A3E4916000ABD7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		411127132A3E4916000ABD7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		411127152A3E4916000ABD7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BB3UWB5NY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuranKZUIKIT2/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ali.QuranKZUIKIT2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		411127162A3E4916000ABD7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BB3UWB5NY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuranKZUIKIT2/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ali.QuranKZUIKIT2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		411126FB2A3E4914000ABD7D /* Build configuration list for PBXProject "QuranKZUIKIT2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				411127122A3E4916000ABD7D /* Debug */,
+				411127132A3E4916000ABD7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		411127142A3E4916000ABD7D /* Build configuration list for PBXNativeTarget "QuranKZUIKIT2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				411127152A3E4916000ABD7D /* Debug */,
+				411127162A3E4916000ABD7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4111271F2A3E499F000ABD7D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		41DB5E192A3F56C900BAE2C8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		411127202A3E499F000ABD7D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4111271F2A3E499F000ABD7D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		41DB5E1A2A3F56C900BAE2C8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41DB5E192A3F56C900BAE2C8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 411126F82A3E4914000ABD7D /* Project object */;
+}
