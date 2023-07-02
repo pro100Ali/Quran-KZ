@@ -40,7 +40,6 @@ class SurahViewController: UIViewController {
            DispatchQueue.main.async {
                self.arrayOfSurahs = self.viewModel.empData
                self.tableView.reloadData()
-               
            }
        }
     

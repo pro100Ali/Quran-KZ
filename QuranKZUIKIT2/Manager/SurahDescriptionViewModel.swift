@@ -22,8 +22,6 @@ class SurahDescriptionViewModel: NSObject {
     override init() {
         super.init()
         self.apiCaller = APICaller()
-        
-        
     }
     
     func callFuncToGetEmpData(_ id: Int) {

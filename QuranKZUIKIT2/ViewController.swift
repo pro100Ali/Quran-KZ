@@ -175,7 +175,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             make.top.equalTo(yellowRect.snp.bottom).offset(15)
             make.width.equalToSuperview()
         }
-        
     }
 }
 

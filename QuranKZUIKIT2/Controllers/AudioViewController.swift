@@ -11,13 +11,14 @@ import AVFoundation
 
 class AudioViewController: UIViewController {
     
-    var audioPlayer: AVAudioPlayer?
+    var audioPlayer: AVPlayer!
+    
     private var isPlayed = true
     
     lazy private var rect: UIView = {
        let rect = UIView()
         rect.layer.cornerRadius = 15
-        rect.backgroundColor = .gray
+        rect.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     return rect
     }()
     
@@ -35,7 +36,7 @@ class AudioViewController: UIViewController {
         pointSize: 30, weight: .medium, scale: .default)
         let image = UIImage(systemName: "play", withConfiguration: config)
         button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(play), for: .touchUpInside)
+        button.addTarget(self, action: #selector(playAction), for: .touchUpInside)
         return button
     }()
     
@@ -125,34 +126,16 @@ class AudioViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-                durationSlider = UISlider()
-              durationSlider.minimumValue = 0
-              durationSlider.maximumValue = 100
-              durationSlider.value = 0
-              durationSlider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
-              
-              // Create the current time label
-              currentTimeLabel = UILabel()
-              currentTimeLabel.text = "0:00"
-              
-              // Add the slider and label to the view
-              rect.addSubview(durationSlider)
-              rect.addSubview(currentTimeLabel)
-              
-       
+
+                     
          
         
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Failed to set up audio session: \(error)")
-        }
+    
         [rect, image].forEach { view.addSubview($0) }
         circle.addSubview(playButton)
         [nameSong, descriptionName, circle, backwardButton, forwardButton, randomButton, listButton].forEach { rect.addSubview($0) }
         setupConstraints()
-        loadAudioFile()
+//        loadAudioFile()
         
         
     }
@@ -162,12 +145,7 @@ class AudioViewController: UIViewController {
             make.top.equalTo(image.snp.bottom).offset(40)
             make.leading.trailing.equalToSuperview().inset(16)
         }
-        durationSlider.snp.makeConstraints { make in
-            make.top.equalTo(descriptionName.snp.bottom).offset(32)
-        }
-        currentTimeLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(durationSlider.snp.top)
-        }
+   
         nameSong.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(20)
             make.leading.equalToSuperview().inset(16)
@@ -216,54 +194,34 @@ class AudioViewController: UIViewController {
   
         
     }
-    func loadAudioFile() {
-        guard let audioFilePath = Bundle.main.path(forResource: "audio", ofType: "mp3") else {
-            print("Audio file not found")
-            return
-        }
-
-        let audioFileURL = URL(fileURLWithPath: audioFilePath)
-
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: audioFileURL)
-            audioPlayer?.prepareToPlay()
-        } catch {
-            print("Failed to load audio file: \(error)")
-        }
-    }
+ 
     
-    @objc func play() {
+    @objc func playAction() {
         if let player = audioPlayer {
-            if isPlayed {
-                player.play()
-                let config = UIImage.SymbolConfiguration(
-                    pointSize: 30, weight: .medium, scale: .default)
-                let image = UIImage(systemName: "pause", withConfiguration: config)
-                playButton.setImage(image, for: .normal)            }
-            else {
-                player.pause()
+
+            if player.timeControlStatus == .playing {
                 let config = UIImage.SymbolConfiguration(
                     pointSize: 30, weight: .medium, scale: .default)
                 let image = UIImage(systemName: "play", withConfiguration: config)
                 playButton.setImage(image, for: .normal)
-            }
-            isPlayed.toggle()
-            
+                player.pause()
+
+            } else {
+                print("fdxxdcvgb")
+                player.play()
+                    let config = UIImage.SymbolConfiguration(
+                        pointSize: 30, weight: .medium, scale: .default)
+                    let image = UIImage(systemName: "pause", withConfiguration: config)
+                    playButton.setImage(image, for: .normal)                 }
         }
     }
 
-    func pause() {
-        if let player = audioPlayer {
-            player.pause()
-        }
-    }
-
-    func stop() {
-        if let player = audioPlayer {
-            player.stop()
-            player.currentTime = 0 // Reset playback position
-        }
-    }
+//    func pause() {
+//        if let player = audioPlayer {
+//            player.pause()
+//        }
+//    }
+//
 
 
 }
