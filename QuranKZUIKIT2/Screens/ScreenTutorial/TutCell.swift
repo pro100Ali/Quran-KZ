@@ -10,6 +10,12 @@ import SnapKit
 
 class TutCell: UICollectionViewCell {
  
+    var video: Video! {
+        didSet {
+            updateUI()
+        }
+    }
+    
     
     lazy private var poster: UIImageView = {
        let image = UIImageView()
@@ -32,17 +38,12 @@ class TutCell: UICollectionViewCell {
         label.textColor = .gray
         label.numberOfLines = 0
         label.sizeToFit()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
     
     
-    var video: Video! {
-        didSet {
-            updateUI()
-        }
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(poster)
@@ -63,18 +64,18 @@ class TutCell: UICollectionViewCell {
         }
         label.snp.makeConstraints { make in
             make.leading.equalTo(poster.snp.trailing).offset(10)
-            make.centerY.equalTo(poster.snp.top)
+            make.top.equalTo(poster.snp.top)
         }
         desc.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.6)
             make.top.equalTo(label.snp.bottom).offset(5)
             make.leading.equalTo(label)
+            make.trailing.equalToSuperview().inset(10)
         }
     }
     
     func updateUI() {
         label.text = video.name
-        print(video.image)
         poster.image = UIImage(named: video.image)
+        desc.text = video.desc
     }
 }

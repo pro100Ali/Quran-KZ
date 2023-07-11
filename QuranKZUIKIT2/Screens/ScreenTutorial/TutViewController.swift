@@ -12,14 +12,13 @@ import AVFoundation
 
 class TutViewController: UIViewController {
 
-//    let arrayOfVideos: [String] = ["Tan", "Kun", "Besin", "Aksham", "Kuptan"]
     var videos: [Video] = Video.fetchVideos()
     var player = AVPlayer()
     var playerViewController = AVPlayerViewController()
     
     lazy private var collection: UICollectionView  = {
        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 400, height: 150)
+        layout.itemSize = CGSize(width: 400, height: 120)
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TutCell.self, forCellWithReuseIdentifier: "cell")
