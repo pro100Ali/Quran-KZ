@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class SurahTableViewCell: UITableViewCell {
+    
     lazy  var label: UILabel = {
         let label = UILabel()
         label.text = "Al Fatiha"

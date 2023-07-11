@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class TutCell: UICollectionViewCell {
+class AudioCell: UICollectionViewCell {
     
-    var video: Video! {
+    var audios: Audio! {
         didSet {
             updateUI()
         }
@@ -47,7 +47,7 @@ class TutCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(poster)
         addSubview(label)
-        addSubview(desc)
+//        addSubview(desc)
         setupConstraints()
     }
     
@@ -57,25 +57,25 @@ class TutCell: UICollectionViewCell {
     
     func setupConstraints() {
         poster.snp.makeConstraints { make in
-            make.height.equalTo(80)
-            make.width.equalTo(150)
+            make.height.equalToSuperview().multipliedBy(0.5)
+            make.width.equalTo(60)
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(16)
         }
         label.snp.makeConstraints { make in
             make.leading.equalTo(poster.snp.trailing).offset(10)
-            make.top.equalTo(poster.snp.top)
+            make.centerY.equalTo(poster)
         }
-        desc.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(5)
-            make.leading.equalTo(label)
-            make.trailing.equalToSuperview().inset(10)
-        }
+//        desc.snp.makeConstraints { make in
+//            make.top.equalTo(label.snp.bottom).offset(5)
+//            make.leading.equalTo(label)
+//            make.trailing.equalToSuperview().inset(10)
+//        }
     }
     
     func updateUI() {
-        label.text = video.name
-        poster.image = UIImage(named: video.image)
-        desc.text = video.desc
+        label.text = audios.name
+        poster.image = UIImage(named: audios.image)
+        desc.text = audios.desc
     }
 }

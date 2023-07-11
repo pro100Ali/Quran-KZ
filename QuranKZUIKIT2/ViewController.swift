@@ -149,8 +149,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func clickAudio(_ sender: UIView) {
         print("You clicked on audioView")
-        let vc = AudioViewController()
-        navigationController?.present(vc, animated: true)
+        let vc = ListAudioViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func clickTutorial(_ sender: UIView) {

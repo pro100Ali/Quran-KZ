@@ -25,7 +25,8 @@ class AudioViewController: UIViewController {
     lazy private var circle: UIView = {
        let circle = UIView()
         circle.layer.cornerRadius = 30
-        circle.backgroundColor = UIColor(red: 0.19, green: 0.30, blue: 0.53, alpha: 1.00)
+//        circle.backgroundColor = UIColor(red: 0.19, green: 0.30, blue: 0.53, alpha: 1.00)
+        circle.backgroundColor = Color.shared.blueRect
         return circle
     }()
     
@@ -126,11 +127,6 @@ class AudioViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-
-                     
-         
-        
-    
         [rect, image].forEach { view.addSubview($0) }
         circle.addSubview(playButton)
         [nameSong, descriptionName, circle, backwardButton, forwardButton, randomButton, listButton].forEach { rect.addSubview($0) }
