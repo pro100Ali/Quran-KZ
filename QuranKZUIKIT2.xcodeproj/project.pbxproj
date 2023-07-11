@@ -38,6 +38,8 @@
 		41C270F52A5DFB5E009E874A /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C270F42A5DFB5E009E874A /* Audio.swift */; };
 		41C270F72A5DFBBD009E874A /* ListAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C270F62A5DFBBD009E874A /* ListAudioViewController.swift */; };
 		41C270F92A5DFC93009E874A /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C270F82A5DFC93009E874A /* AudioCell.swift */; };
+		41C271002A5E0F4B009E874A /* Al-Ihlas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41C270FF2A5E0F4B009E874A /* Al-Ihlas.mp3 */; };
+		41C271022A5E0F69009E874A /* Al-Fatiha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41C271012A5E0F69009E874A /* Al-Fatiha.mp3 */; };
 		41CC87F82A517D9F00A97C5F /* SurahTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87F72A517D9F00A97C5F /* SurahTimeViewModel.swift */; };
 		41CC87FA2A51802100A97C5F /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87F92A51802100A97C5F /* TimeView.swift */; };
 		41CC87FD2A51E16A00A97C5F /* SunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87FC2A51E16A00A97C5F /* SunView.swift */; };
@@ -84,6 +86,8 @@
 		41C270F42A5DFB5E009E874A /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		41C270F62A5DFBBD009E874A /* ListAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAudioViewController.swift; sourceTree = "<group>"; };
 		41C270F82A5DFC93009E874A /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
+		41C270FF2A5E0F4B009E874A /* Al-Ihlas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Al-Ihlas.mp3"; sourceTree = "<group>"; };
+		41C271012A5E0F69009E874A /* Al-Fatiha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Al-Fatiha.mp3"; sourceTree = "<group>"; };
 		41CC87F72A517D9F00A97C5F /* SurahTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahTimeViewModel.swift; sourceTree = "<group>"; };
 		41CC87F92A51802100A97C5F /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		41CC87FC2A51E16A00A97C5F /* SunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunView.swift; sourceTree = "<group>"; };
@@ -137,7 +141,6 @@
 				411127092A3E4914000ABD7D /* Main.storyboard */,
 				415D543A2A4075A2007BE559 /* Manager */,
 				419C30E62A4B7B7A00BB1EE6 /* Constants */,
-				419C30E52A4B7B6400BB1EE6 /* Views */,
 				419C30E42A4B7B5400BB1EE6 /* Controllers */,
 				4111270C2A3E4916000ABD7D /* Assets.xcassets */,
 				4111270E2A3E4916000ABD7D /* LaunchScreen.storyboard */,
@@ -172,9 +175,6 @@
 		419C30E42A4B7B5400BB1EE6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4125794D2A3EF94500533A8B /* SurahDescriptionViewController.swift */,
-				419C30E02A4B759B00BB1EE6 /* DemoSurahViewController.swift */,
-				4111271C2A3E496E000ABD7D /* SurahViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,10 +202,23 @@
 				415D543C2A40C9B4007BE559 /* AudioViewController.swift */,
 				41C270F42A5DFB5E009E874A /* Audio.swift */,
 				41C270F62A5DFBBD009E874A /* ListAudioViewController.swift */,
+				41C271012A5E0F69009E874A /* Al-Fatiha.mp3 */,
+				41C270FF2A5E0F4B009E874A /* Al-Ihlas.mp3 */,
 				41C270F82A5DFC93009E874A /* AudioCell.swift */,
 				415D543E2A40CB17007BE559 /* a1.mp3 */,
 			);
 			path = ScreenAudio;
+			sourceTree = "<group>";
+		};
+		41C270FA2A5DFF45009E874A /* ScreenQuran */ = {
+			isa = PBXGroup;
+			children = (
+				419C30E52A4B7B6400BB1EE6 /* Views */,
+				4125794D2A3EF94500533A8B /* SurahDescriptionViewController.swift */,
+				419C30E02A4B759B00BB1EE6 /* DemoSurahViewController.swift */,
+				4111271C2A3E496E000ABD7D /* SurahViewController.swift */,
+			);
+			path = ScreenQuran;
 			sourceTree = "<group>";
 		};
 		41CC87FB2A51939D00A97C5F /* ScreenTime */ = {
@@ -261,6 +274,7 @@
 		41E44A212A5C413000F81969 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				41C270FA2A5DFF45009E874A /* ScreenQuran */,
 				41C270F32A5DFB00009E874A /* ScreenAudio */,
 				41E1458A2A5B52B40029D446 /* ScreenTutorial */,
 				41CC87FB2A51939D00A97C5F /* ScreenTime */,
@@ -337,11 +351,13 @@
 			files = (
 				417981B72A5DEA00000709EA /* v3.mp4 in Resources */,
 				417981B62A5DEA00000709EA /* v4.mp4 in Resources */,
+				41C271022A5E0F69009E874A /* Al-Fatiha.mp3 in Resources */,
 				417981B42A5DEA00000709EA /* v5.mp4 in Resources */,
 				417981B52A5DEA00000709EA /* v6.mp4 in Resources */,
 				417981AA2A5D8E8C000709EA /* v1.mp4 in Resources */,
 				411127102A3E4916000ABD7D /* LaunchScreen.storyboard in Resources */,
 				417981AF2A5D97D2000709EA /* v2.mp4 in Resources */,
+				41C271002A5E0F4B009E874A /* Al-Ihlas.mp3 in Resources */,
 				4111270D2A3E4916000ABD7D /* Assets.xcassets in Resources */,
 				415D543F2A40CB17007BE559 /* a1.mp3 in Resources */,
 				4111270B2A3E4914000ABD7D /* Main.storyboard in Resources */,

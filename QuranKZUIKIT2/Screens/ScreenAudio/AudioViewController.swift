@@ -12,7 +12,10 @@ import AVFoundation
 class AudioViewController: UIViewController {
     
     var audioPlayer: AVPlayer!
+//    var audioPlayer: AVAudioPlayer?
     
+    var audio: Audio?
+    var currentAudio: String = "a1"
     private var isPlayed = true
     
     lazy private var rect: UIView = {
@@ -106,22 +109,7 @@ class AudioViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
-    
-    private var durationSlider: UISlider!
-        private var currentTimeLabel: UILabel!
-    
-    
-    @objc func sliderValueChanged(_ slider: UISlider) {
-         let duration = slider.value
-         let formattedTime = formatTime(duration)
-         currentTimeLabel.text = formattedTime
-     }
-     
-     func formatTime(_ duration: Float) -> String {
-         let minutes = Int(duration) / 60
-         let seconds = Int(duration) % 60
-         return String(format: "%d:%02d", minutes, seconds)
-     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,10 +119,12 @@ class AudioViewController: UIViewController {
         circle.addSubview(playButton)
         [nameSong, descriptionName, circle, backwardButton, forwardButton, randomButton, listButton].forEach { rect.addSubview($0) }
         setupConstraints()
+
 //        loadAudioFile()
         
         
     }
+
     func setupConstraints() {
         rect.snp.makeConstraints { make in
             make.height.equalTo(250)
@@ -190,11 +180,16 @@ class AudioViewController: UIViewController {
   
         
     }
- 
+    
+    func loadAudioFile(_ audio: String) {
+        guard let audioURL = Bundle.main.url(forResource: audio, withExtension: "mp3") else {
+            return
+        }
+        audioPlayer = AVPlayer(url: audioURL)
+    }
     
     @objc func playAction() {
         if let player = audioPlayer {
-
             if player.timeControlStatus == .playing {
                 let config = UIImage.SymbolConfiguration(
                     pointSize: 30, weight: .medium, scale: .default)
@@ -203,7 +198,6 @@ class AudioViewController: UIViewController {
                 player.pause()
 
             } else {
-                print("fdxxdcvgb")
                 player.play()
                     let config = UIImage.SymbolConfiguration(
                         pointSize: 30, weight: .medium, scale: .default)
@@ -212,12 +206,35 @@ class AudioViewController: UIViewController {
         }
     }
 
-//    func pause() {
+    
+    func play() {
+        if let player = audioPlayer {
+            player.play()
+        }
+    }
+
+    func pause() {
+        if let player = audioPlayer {
+            player.pause()
+        }
+    }
+
+//    func stop() {
 //        if let player = audioPlayer {
-//            player.pause()
+//            player.stop()
+////            player.currentTime = 0 // Reset playback position
 //        }
 //    }
-//
+}
 
 
+extension AudioViewController: AudioDelegate {
+    func givingObject(_ audio: Audio) {
+        
+            self.nameSong.text = audio.name
+            self.descriptionName.text = audio.desc
+            self.currentAudio = audio.audioFileName
+            loadAudioFile(audio.audioFileName)
+    }
+    
 }

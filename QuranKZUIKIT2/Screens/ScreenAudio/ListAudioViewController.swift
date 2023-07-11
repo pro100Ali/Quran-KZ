@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol AudioDelegate: class {
+    func givingObject(_ audio: Audio)
+}
+
 class ListAudioViewController: UIViewController {
 
     var audios: [Audio] = Audio.fetchAudio()
-
+    
+    var delegate: AudioDelegate?
     
     lazy private var collection: UICollectionView  = {
        let layout = UICollectionViewFlowLayout()
@@ -63,10 +68,13 @@ extension ListAudioViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("asdads")
-//        playAudio(at: indexPath)
+        
         let vc = AudioViewController()
+        self.delegate = vc
+
+        delegate?.givingObject(audios[indexPath.row])
         self.present(vc, animated: true, completion: nil)
+
     }
 }
     

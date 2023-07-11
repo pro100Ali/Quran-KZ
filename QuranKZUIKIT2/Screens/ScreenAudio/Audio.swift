@@ -15,8 +15,8 @@ struct Audio {
     let desc: String
     
     static func fetchAudio() -> [Audio] {
-        let v1 = Audio(name: "Al fatiha", audioFileName: "a1", image: "compass", desc: "Ерлерге арналған Ханафи мәзһабы бойынша таң (фәжр) намазының 2 ракәғат парызы.")
-        let v2 = Audio(name: "Al Ihlas", audioFileName: "a2", image: "compass", desc: "Ерлерге арналған Ханафи мәзһабы бойынша таң (фәжр) намазының 2 ракәғат парызы.")
+        let v1 = Audio(name: "Al fatiha", audioFileName: "Al-Fatiha", image: "compass", desc: "Ерлерге арналған Ханафи мәзһабы бойынша таң (фәжр) намазының 2 ракәғат парызы.")
+        let v2 = Audio(name: "Al Ihlas", audioFileName: "Al-Ihlas", image: "compass", desc: "Ерлерге арналған Ханафи мәзһабы бойынша таң (фәжр) намазының 2 ракәғат парызы.")
        
         let videoArr: [Audio] = [v1, v2]
         
