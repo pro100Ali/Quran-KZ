@@ -84,7 +84,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let purpleRect = CustomView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), text: "Кітап", color:  Color.shared.purpleRect, image: UIImage(named: "books")!)
     
-    let yellowRect = CustomView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), text: "Дұға", color:  Color.shared.yellowRect, image: UIImage(named: "pray")!)
+    let yellowRect = CustomView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), text: "Үйрену", color:  Color.shared.yellowRect, image: UIImage(named: "pray")!)
     
     let blueRect = CustomView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), text: "Құбыла", color:  Color.shared.blueRect, image: UIImage(named: "music")!)
     
@@ -119,6 +119,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         tapAudio.delegate = self
         blueRect.addGestureRecognizer(tapAudio)
         
+        
+        let tapTut = UITapGestureRecognizer(target: self, action: #selector(clickTutorial(_:)))
+        tapTut.delegate = self
+        yellowRect.addGestureRecognizer(tapTut)
+        
         setupConstraints()
         
     }
@@ -138,16 +143,20 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func clickBook(_ sender: UIView) {
         print("You clicked on viewBook")
-//        let vc = TimeViewController()
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = BookViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func clickAudio(_ sender: UIView) {
         print("You clicked on audioView")
         let vc = AudioViewController()
         navigationController?.present(vc, animated: true)
-//        let vc = TimeViewController()
-//        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func clickTutorial(_ sender: UIView) {
+        print("You clicked on tut")
+        let vc = TutViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupConstraints() {

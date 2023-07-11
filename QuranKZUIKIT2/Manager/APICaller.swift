@@ -78,9 +78,9 @@ class APICaller {
     }
     
     
-    func getTimePray(completion: @escaping (Result<[Time], Error>) -> Void) {
+    func getTimePray(completion: @escaping (Result<Time, Error>) -> Void) {
         
-        let urlString = "https://namaz.muftyat.kz/kk/api/times/2023/50.3/57.166667"
+        let urlString = "https://namaztimes.kz/api/praytimes?id=8382&type=json"
         
         let url = URL(string: urlString)
         
@@ -93,7 +93,7 @@ class APICaller {
                     let articles = try decoder.decode(SurahTime.self, from: data)
                     
 //                    print(articles)
-                    completion(.success(articles.result))
+                    completion(.success(articles.praytimes))
                     
                 } catch let error {
                     print("Error was \(error)")
