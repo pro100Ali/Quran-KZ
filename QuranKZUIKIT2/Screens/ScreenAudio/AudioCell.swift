@@ -10,7 +10,7 @@ import SnapKit
 
 class AudioCell: UICollectionViewCell {
     
-    var audios: Audio! {
+    var audios: Surah! {
         didSet {
             updateUI()
         }
@@ -18,7 +18,7 @@ class AudioCell: UICollectionViewCell {
     
     lazy private var poster: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "clock")
+        image.image = UIImage(named: "note  ")
         return image
     }()
     
@@ -74,8 +74,8 @@ class AudioCell: UICollectionViewCell {
     }
     
     func updateUI() {
-        label.text = audios.name
-        poster.image = UIImage(named: audios.image)
-        desc.text = audios.desc
+        label.text = audios.name_simple
+//        poster.image = UIImage(named: audios.image)
+//        desc.text = audios.desc
     }
 }

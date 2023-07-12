@@ -7,19 +7,12 @@
 
 import Foundation
 
-struct Audio {
-    
-    let name: String
-    let audioFileName: String
-    let image: String
-    let desc: String
-    
-    static func fetchAudio() -> [Audio] {
-        let v1 = Audio(name: "Al fatiha", audioFileName: "Al-Fatiha", image: "compass", desc: "Ерлерге арналған Ханафи мәзһабы бойынша таң (фәжр) намазының 2 ракәғат парызы.")
-        let v2 = Audio(name: "Al Ihlas", audioFileName: "Al-Ihlas", image: "compass", desc: "Ерлерге арналған Ханафи мәзһабы бойынша таң (фәжр) намазының 2 ракәғат парызы.")
-       
-        let videoArr: [Audio] = [v1, v2]
-        
-        return videoArr
-    }
+struct Audio: Codable {
+    let id: Int?
+    let chapter_id: Int?
+    let audio_url: String?
+}
+
+struct AudioAPI: Codable {
+    let audio_file: Audio
 }

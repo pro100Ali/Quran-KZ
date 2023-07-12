@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol AudioDelegate: class {
-    func givingObject(_ audio: Audio)
+    func givingObject(_ surah: Surah)
 }
 
 class ListAudioViewController: UIViewController {
 
-    var audios: [Audio] = Audio.fetchAudio()
+    var audios: [Surah] = []
     
+    private var viewModel : SurahViewModel!
+
     var delegate: AudioDelegate?
     
     lazy private var collection: UICollectionView  = {
@@ -40,8 +43,25 @@ class ListAudioViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         setupConstraints()
+        callToViewModelForUIUpdate()
         // Do any additional setup after loading the view.
     }
+    
+    func callToViewModelForUIUpdate() {
+        
+        self.viewModel = SurahViewModel()
+        self.viewModel.bindViewModelToController = {
+        self.updateDataSource()
+        }
+        
+    }
+    
+    func updateDataSource(){
+           DispatchQueue.main.async {
+               self.audios = self.viewModel.empData
+               self.collection.reloadData()
+           }
+       }
     
     func setupConstraints() {
         collection.snp.makeConstraints { make in

@@ -43,6 +43,7 @@
 		41CC87F82A517D9F00A97C5F /* SurahTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87F72A517D9F00A97C5F /* SurahTimeViewModel.swift */; };
 		41CC87FA2A51802100A97C5F /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87F92A51802100A97C5F /* TimeView.swift */; };
 		41CC87FD2A51E16A00A97C5F /* SunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87FC2A51E16A00A97C5F /* SunView.swift */; };
+		41D8952C2A5F359800014BA2 /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8952B2A5F359800014BA2 /* AudioViewModel.swift */; };
 		41DB5E1B2A3F56C900BAE2C8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 41DB5E1A2A3F56C900BAE2C8 /* Alamofire */; };
 		41DC4D6B2A41B25F0009F119 /* SurahTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC4D6A2A41B25F0009F119 /* SurahTime.swift */; };
 		41DC4D6D2A41B37F0009F119 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC4D6C2A41B37F0009F119 /* TimeViewController.swift */; };
@@ -91,6 +92,7 @@
 		41CC87F72A517D9F00A97C5F /* SurahTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahTimeViewModel.swift; sourceTree = "<group>"; };
 		41CC87F92A51802100A97C5F /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		41CC87FC2A51E16A00A97C5F /* SunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunView.swift; sourceTree = "<group>"; };
+		41D8952B2A5F359800014BA2 /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		41DC4D6A2A41B25F0009F119 /* SurahTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahTime.swift; sourceTree = "<group>"; };
 		41DC4D6C2A41B37F0009F119 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		41DC4D6E2A41D9E90009F119 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				415D543C2A40C9B4007BE559 /* AudioViewController.swift */,
+				41D8952B2A5F359800014BA2 /* AudioViewModel.swift */,
 				41C270F42A5DFB5E009E874A /* Audio.swift */,
 				41C270F62A5DFBBD009E874A /* ListAudioViewController.swift */,
 				41C271012A5E0F69009E874A /* Al-Fatiha.mp3 */,
@@ -388,6 +391,7 @@
 				41C270F92A5DFC93009E874A /* AudioCell.swift in Sources */,
 				41E44A232A5C45FD00F81969 /* WebViewController.swift in Sources */,
 				411CADD22A582CD500EC7415 /* RemainingViewController.swift in Sources */,
+				41D8952C2A5F359800014BA2 /* AudioViewModel.swift in Sources */,
 				412BDD6A2A4CD1A400587AC4 /* CustomView.swift in Sources */,
 				415D543D2A40C9B4007BE559 /* AudioViewController.swift in Sources */,
 				41E145892A5B29340029D446 /* BookCell.swift in Sources */,
