@@ -202,10 +202,13 @@ class AudioViewController: UIViewController {
     @objc func playbackSliderValueChanged(_ playbackSlider:UISlider) {
         let seconds : Int64 = Int64(playbackSlider.value)
         let targetTime:CMTime = CMTimeMake(value: seconds, timescale: 1)
-        audioPlayer!.seek(to: targetTime)
-        if audioPlayer!.rate == 0 {
-            audioPlayer?.play()
+        if isPlayed {
+            audioPlayer!.seek(to: targetTime)
+            if audioPlayer!.rate == 0 {
+                audioPlayer?.play()
+            }
         }
+       
     }
     
     
@@ -224,6 +227,7 @@ class AudioViewController: UIViewController {
             audioPlayer!.play()
 //            self.ButtonPlay.isHidden = true
             //        self.loadingView.isHidden = false
+            
             playButton.setImage(UIImage(systemName: "pause"), for: UIControl.State.normal)
         } else {
             audioPlayer!.pause()
@@ -351,6 +355,7 @@ class AudioViewController: UIViewController {
                 let config = UIImage.SymbolConfiguration(
                     pointSize: 30, weight: .medium, scale: .default)
                 let image = UIImage(systemName: "play", withConfiguration: config)
+                self.isPlayed = false
                 playButton.setImage(image, for: .normal)
                 
                 player.pause()
@@ -360,6 +365,8 @@ class AudioViewController: UIViewController {
                 let config = UIImage.SymbolConfiguration(
                     pointSize: 30, weight: .medium, scale: .default)
                 let image = UIImage(systemName: "pause", withConfiguration: config)
+                self.isPlayed = true
+
                 playButton.setImage(image, for: .normal)                 }
         }
     }
