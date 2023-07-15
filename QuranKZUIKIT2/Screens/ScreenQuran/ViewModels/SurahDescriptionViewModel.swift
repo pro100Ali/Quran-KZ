@@ -11,7 +11,7 @@ class SurahDescriptionViewModel: NSObject {
     
     private var apiCaller: APICaller!
 //    var surahInfo: SurahInfo!
-    private(set) var empData : [SurahVerses]! {
+    private(set) var empData : [SurahVerses]? {
            didSet {
                self.bindViewModelToController()
            }

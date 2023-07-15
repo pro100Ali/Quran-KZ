@@ -78,8 +78,8 @@ class QuranViewController: UIViewController {
     
     func updateDataSource(){
         DispatchQueue.main.async { [self] in
-            
-            arrayOfSurahs = viewModel.empData
+            guard let data = viewModel.empData else { return }
+            arrayOfSurahs = data
             tableView.reloadData()
         }
     }
@@ -89,7 +89,7 @@ class QuranViewController: UIViewController {
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.1)
+            make.height.equalToSuperview().multipliedBy(0.07)
         }
         
         tableView.snp.makeConstraints { make in
@@ -136,7 +136,7 @@ extension QuranViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension QuranViewController: EachSurah {
     func showTheSurah(_ chapter: Surah) {
-        self.index = chapter.id!
+        self.index = chapter.pages[0]
         headerForTable.configure(chapter.name_arabic!)
 
 //        navigationItem.title =

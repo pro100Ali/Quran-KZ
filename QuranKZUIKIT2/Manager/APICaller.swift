@@ -45,9 +45,9 @@ class APICaller {
     }
     
     
-    func getInfoChapters(with id: Int, completion: @escaping (Result<[SurahVerses], Error>) -> Void) {
+    func getInfoChapters(with pageId: Int, completion: @escaping (Result<[SurahVerses], Error>) -> Void) {
         
-        let urlString = "https://api.quran.com/api/v4/verses/by_page/\(id)?language=ru&words=true&page=1&per_page=10"
+        let urlString = "https://api.quran.com/api/v4/verses/by_page/\(pageId)?language=ru&words=true&page=1&per_page=10"
         
         let url = URL(string: urlString)
         

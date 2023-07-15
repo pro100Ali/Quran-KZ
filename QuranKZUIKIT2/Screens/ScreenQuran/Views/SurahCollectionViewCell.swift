@@ -21,14 +21,14 @@ class SurahCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.layer.cornerRadius = 15
         label.numberOfLines = 2
-//        label.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
+        //        label.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
         label.textColor = .black
         
         return label
     }()
     
     var line: UIView = {
-       let line = UIView()
+        let line = UIView()
         line.backgroundColor = Color.shared.greenRect
         line.isHidden = true
         return line
@@ -52,6 +52,7 @@ class SurahCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         label.snp.makeConstraints { make in                make.center.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.9)
         }
         line.snp.makeConstraints { make in
             make.top.equalTo(label.snp.bottom).offset(10)
