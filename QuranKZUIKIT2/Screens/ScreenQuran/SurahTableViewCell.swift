@@ -8,34 +8,31 @@
 import UIKit
 import SnapKit
 
-class TableViewCell: UITableViewCell {
-
+class SurahTableViewCell: UITableViewCell {
     
-      var text: UILabel = {
-       let text = UILabel()
+    lazy private  var text: UILabel = {
+        let text = UILabel()
         text.text = "Hello"
         return text
     }()
     
-    var textArabic: UILabel = {
-     let text = UILabel()
-      text.text = ""
-        
+    lazy private var textArabic: UILabel = {
+        let text = UILabel()
+        text.text = ""
         text.numberOfLines = 0
-      
         text.sizeToFit()
         return text
-  }()
+    }()
     
     var arabicText: UILabel = {
-     let text = UILabel()
-      text.text = ""
+        let text = UILabel()
+        text.text = ""
         
         text.numberOfLines = 0
-      
+        
         text.sizeToFit()
         return text
-  }()
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,6 +44,23 @@ class TableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func configure(_ word: SurahVerses) {
+        
+        self.textArabic.text! = ""
+        self.arabicText.text! = ""
+        self.text.text = word.verse_key
+    
+        for i in word.words! {
+            if let word2 = i.transliteration?.text {
+                self.textArabic.text! += "  \(word2.uppercased())"
+            }
+            if let word1 = i.translation?.text {
+                self.arabicText.text! += " \(word1.uppercased())"
+            }
+        }
     }
     
     func setupConstraints() {

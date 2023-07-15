@@ -19,14 +19,5 @@ struct Surah: Codable {
     
 }
 
-struct SurahDict: Codable {
-    let chapter_info: SurahInfo?
-}
-
-struct SurahInfo: Codable {
-    let chapter_id: Int?
-    let language_name: String?
-    let short_text: String?
-}
 
 

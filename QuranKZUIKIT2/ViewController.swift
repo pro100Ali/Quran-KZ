@@ -131,7 +131,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
  
     @objc func clickSurah(_ sender: UIView) {
         print("You clicked on view")
-        let vc = DemoSurahViewController()
+        let vc = QuranViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

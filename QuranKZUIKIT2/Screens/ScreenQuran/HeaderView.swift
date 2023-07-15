@@ -10,9 +10,7 @@ import SnapKit
 
 class HeaderView: UIView {
     
-//    var delegate: SurahDelegate?
     var arrayOfSurahs: [Surah] = []
-    var surahInfo: SurahInfo?
     var delegate: EachSurah?
     
     private var viewModel: SurahViewModel!
@@ -33,17 +31,9 @@ class HeaderView: UIView {
         return collectionView
     }()
     
-    lazy private var text: UILabel = {
-       let label = UILabel()
-        label.text = "06-28 16:18:30.441952+0500 QuranKZUIKIT2[28223:3627327] The relevant UICollectionViewFlowLayout instance is <UICollectionViewFlowLayout: 0x14d510c10>, and it is attached to <UICollectionView: 0x14f019e00; frame = (2 0; 393 2); clipsToBounds = YES; gestureRecognizers = <NSArray: 0x6000003c2790>; backgroundColor = <UIDynamicSystemColor: 0x6000018b1180; name = systemBackgroundColor>; layer = <CALayer: 0x600000ddbde0>; contentOffset: {0, 0}; contentSize: {0, 2}; adjustedContentInset: {0, 0, 0, 0}; layout: <UICollectionViewFlowLayout: 0x14d510c10>; dataSource: <QuranKZUIKIT2.DemoSurahViewController: 0x14e82bc00>>."
-        label.numberOfLines = 0
-        label.sizeToFit()
-        return label
-    }()
-    
     func callToViewModelForUIUpdate() {
         
-        self.viewModel =  SurahViewModel()
+        self.viewModel = SurahViewModel()
         self.viewModel.bindViewModelToController = {
         self.updateDataSource()
         }
@@ -64,12 +54,8 @@ class HeaderView: UIView {
         callToViewModelForUIUpdate()
         collection.delegate = self
         collection.dataSource = self
-//        addSubview(mainView)
         addSubview(collection)
-//        mainView.addSubview(text)
-
         setupConstraints()
-//        callToViewModelForUIUpdate()
         
         
     }
