@@ -45,9 +45,9 @@ class APICaller {
     }
     
     
-    func getInfoChapters(with id: Int, completion: @escaping (Result<SurahInfo, Error>) -> Void) {
+    func getInfoChapters(with id: Int, completion: @escaping (Result<[SurahVerses], Error>) -> Void) {
         
-        let urlString = "http://api.quran.com/api/v3/chapters/\(id)/info"
+        let urlString = "https://api.quran.com/api/v4/verses/by_page/\(id)?language=ru&words=true&page=1&per_page=10"
         
         let url = URL(string: urlString)
         
@@ -57,10 +57,10 @@ class APICaller {
             if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    let articles = try decoder.decode(SurahDict.self, from: data)
+                    let articles = try decoder.decode(SurahAyat.self, from: data)
                     
 //                    print(articles)
-                    completion(.success(articles.chapter_info!))
+                    completion(.success(articles.verses))
                     
                 } catch let error {
                     print("Error was \(error)")
@@ -76,6 +76,8 @@ class APICaller {
         task.resume()
         
     }
+    
+    
     
     
     func getTimePray(completion: @escaping (Result<Time, Error>) -> Void) {

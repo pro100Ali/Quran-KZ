@@ -107,7 +107,7 @@ class AudioViewController: UIViewController {
     
     lazy private var descriptionName: UILabel = {
         let label = UILabel()
-        label.text = "Rose Imanbek"
+        label.text = "--:--"
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label
@@ -115,7 +115,7 @@ class AudioViewController: UIViewController {
     
     lazy private var currentDuraation: UILabel = {
         let label = UILabel()
-        label.text = "rosa rymbayeva"
+        label.text = "--:--"
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label

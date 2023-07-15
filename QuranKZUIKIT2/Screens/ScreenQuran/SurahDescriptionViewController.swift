@@ -31,7 +31,7 @@ class SurahDescriptionViewController: UIViewController, SurahDelegate {
     
     func updateDataSource(){
            DispatchQueue.main.async {
-               self.surah = self.viewModel.empData               
+//               self.surah = self.viewModel.empData
            }
        }
     
@@ -53,7 +53,7 @@ class SurahDescriptionViewController: UIViewController, SurahDelegate {
                     switch res {
                     case .success(let success):
                             DispatchQueue.main.async {
-                            self.label.text = success.short_text
+//                            self.label.text = success.short_text
                         }
                     case .failure(let failure):
                         print(failure)

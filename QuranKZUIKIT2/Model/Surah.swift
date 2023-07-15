@@ -14,6 +14,9 @@ struct Welcome: Codable {
 struct Surah: Codable {
     let id: Int?
     let name_simple: String?
+    let pages: [Int]
+    let name_arabic: String?
+    
 }
 
 struct SurahDict: Codable {
@@ -25,3 +28,5 @@ struct SurahInfo: Codable {
     let language_name: String?
     let short_text: String?
 }
+
+
