@@ -94,8 +94,13 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.label.text = arrayOfSurahs[indexPath.row].name_simple
 
         // Reset the cell's state
-        cell.label.textColor = (indexPath == selectedIndex) ? UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00) : .black
-        cell.line.isHidden = (indexPath == selectedIndex) ? false : true
+        UIView.transition(with: cell, duration: 0.8, options: .transitionCrossDissolve, animations: { [self] in
+            cell.label.textColor = (indexPath == selectedIndex) ? UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00) : .black
+            cell.line.isHidden = (indexPath == selectedIndex) ? false : true
+                // Additional changes for selected state
+            }, completion: nil)
+        
+      
         
 
         return cell
@@ -105,18 +110,32 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
         // Store the selected index
         selectedIndex = indexPath
 
-        let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell
-        cell?.label.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
-        cell?.line.isHidden = false
+        guard let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell else { return }
+        
+        cell.label.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
+        cell.line.isHidden = false
+
+        
+        UIView.transition(with: cell, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            cell.label.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
+            cell.line.isHidden = false
+              // Additional changes for unselected state
+          }, completion: nil)
 
         delegate?.showTheSurah(arrayOfSurahs[indexPath.row])
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell
-        cell?.label.textColor = .black
-        cell?.line.isHidden = true
+        guard let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell else { return }
+        
+        UIView.transition(with: cell, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            cell.label.textColor = .black
+            cell.line.isHidden = true
+              // Additional changes for unselected state
+          }, completion: nil)
+    
         // Remove the selected index if it is deselected
+        
         if selectedIndex == indexPath {
             selectedIndex = nil
         }
