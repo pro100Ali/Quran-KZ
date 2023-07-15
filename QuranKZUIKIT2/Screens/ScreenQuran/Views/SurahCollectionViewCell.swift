@@ -8,19 +8,20 @@
 import UIKit
 
 class SurahCollectionViewCell: UICollectionViewCell {
-
+    
     lazy private var rectView: UIView = {
-       let view = UIView()
-        view.backgroundColor = .gray
+        let view = UIView()
         view.layer.cornerRadius = 15
         return view
     }()
     
     var label: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textAlignment = .center
         label.layer.cornerRadius = 15
         label.numberOfLines = 2
+        label.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
+        
         return label
     }()
     

@@ -13,6 +13,7 @@ class SurahTableViewCell: UITableViewCell {
     lazy private  var text: UILabel = {
         let text = UILabel()
         text.text = "Hello"
+        text.textColor = .gray
         return text
     }()
     
@@ -21,6 +22,8 @@ class SurahTableViewCell: UITableViewCell {
         text.text = ""
         text.numberOfLines = 0
         text.sizeToFit()
+        text.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
+        text.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return text
     }()
     
@@ -66,17 +69,17 @@ class SurahTableViewCell: UITableViewCell {
     func setupConstraints() {
         text.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
+            make.top.equalToSuperview().inset(20)
         }
         textArabic.snp.makeConstraints { make in
             make.top.equalTo(text.snp.bottom).offset(10)
-            make.leading.equalToSuperview().inset(16)
-            make.width.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+
             
         }
         arabicText.snp.makeConstraints { make in
             make.top.equalTo(textArabic.snp.bottom).offset(10)
-            make.leading.equalToSuperview().inset(16)
-            make.width.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
         }
     }
 }

@@ -13,7 +13,7 @@ protocol EachSurah: AnyObject {
 }
 
 class QuranViewController: UIViewController {
-        
+    
     var arrayOfSurahs: [SurahVerses] = []
     private var viewModel: SurahDescriptionViewModel!
     var str: [String] = []
@@ -23,11 +23,28 @@ class QuranViewController: UIViewController {
         }
     }
     
-    let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
+    let headerView = HeaderView(frame: .zero)
+    
+    let headerForTable = HeaderForTable(frame: .zero) 
+    lazy private var lenta: UIView = {
+        let rect = UIView()
+        rect.backgroundColor = Color.shared.greenRect
+        return rect
+    }()
+    
+    lazy private var text: UILabel = {
+        let text = UILabel()
+        text.text = "Al-Asr"
+        text.textColor = .white
+        text.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        return text
+    }()
     lazy private var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .grouped)
         table.register(SurahTableViewCell.self, forCellReuseIdentifier: "cell")
+        table.backgroundColor = .white
+        table.layer.cornerRadius = 10
         return table
     }()
     
@@ -35,9 +52,7 @@ class QuranViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Color.shared.greenRect
         navigationController?.navigationBar.tintColor = UIColor.white
-        view.addSubview(headerView)
-        view.addSubview(tableView)
-        
+        [headerView, tableView].forEach { view.addSubview($0) }
         headerView.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,7 +60,7 @@ class QuranViewController: UIViewController {
         
         callToViewModelForUIUpdate()
         headerView.delegate = self
-        navigationItem.title = "الفاتحة"
+        navigationItem.title = "Quran"
         
         
     }
@@ -63,6 +78,7 @@ class QuranViewController: UIViewController {
     
     func updateDataSource(){
         DispatchQueue.main.async { [self] in
+            
             arrayOfSurahs = viewModel.empData
             tableView.reloadData()
         }
@@ -75,9 +91,11 @@ class QuranViewController: UIViewController {
             make.width.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
         tableView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(headerView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(headerView.snp.bottom).offset(10)
+            make.height.equalToSuperview()
         }
     }
     
@@ -101,17 +119,27 @@ extension QuranViewController: UITableViewDelegate, UITableViewDataSource {
         330
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == arrayOfSurahs.count {
-            headerView.layer.opacity = 0.8
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if indexPath.row + 1 == arrayOfSurahs.count {
+//            headerView.layer.opacity = 0.8
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            return headerForTable
         }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
     }
 }
 
 extension QuranViewController: EachSurah {
     func showTheSurah(_ chapter: Surah) {
         self.index = chapter.id!
-        navigationItem.title = chapter.name_arabic
+        headerForTable.configure(chapter.name_arabic!)
+
+//        navigationItem.title =
     }
     
     

@@ -27,7 +27,6 @@ class SurahDescriptionViewModel: NSObject {
     func callFuncToGetEmpData(_ id: Int) {
         self.apiCaller.getInfoChapters(with: id) { res in
             APICaller.shared.getInfoChapters(with: id) { res in
-                print(id)
                 switch res {
                 case .success(let success):
                         DispatchQueue.main.async {

@@ -37,6 +37,7 @@
 		41CC87F82A517D9F00A97C5F /* SurahTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87F72A517D9F00A97C5F /* SurahTimeViewModel.swift */; };
 		41CC87FA2A51802100A97C5F /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87F92A51802100A97C5F /* TimeView.swift */; };
 		41CC87FD2A51E16A00A97C5F /* SunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC87FC2A51E16A00A97C5F /* SunView.swift */; };
+		41CD48C42A63433A00101267 /* HeaderForTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD48C32A63433A00101267 /* HeaderForTable.swift */; };
 		41D8952C2A5F359800014BA2 /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8952B2A5F359800014BA2 /* AudioViewModel.swift */; };
 		41DB5E1B2A3F56C900BAE2C8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 41DB5E1A2A3F56C900BAE2C8 /* Alamofire */; };
 		41DC4D6B2A41B25F0009F119 /* SurahTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC4D6A2A41B25F0009F119 /* SurahTime.swift */; };
@@ -82,6 +83,7 @@
 		41CC87F72A517D9F00A97C5F /* SurahTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahTimeViewModel.swift; sourceTree = "<group>"; };
 		41CC87F92A51802100A97C5F /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		41CC87FC2A51E16A00A97C5F /* SunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunView.swift; sourceTree = "<group>"; };
+		41CD48C32A63433A00101267 /* HeaderForTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForTable.swift; sourceTree = "<group>"; };
 		41D8952B2A5F359800014BA2 /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		41DC4D6A2A41B25F0009F119 /* SurahTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahTime.swift; sourceTree = "<group>"; };
 		41DC4D6C2A41B37F0009F119 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		411127022A3E4914000ABD7D /* QuranKZUIKIT2 */ = {
 			isa = PBXGroup;
 			children = (
+				411127112A3E4916000ABD7D /* Info.plist */,
 				41E44A202A5C40CC00F81969 /* DefaultFiles */,
 				41CD48BB2A63349800101267 /* MainScreen */,
 				41E44A212A5C413000F81969 /* Screens */,
@@ -170,6 +173,7 @@
 			children = (
 				41FB39462A61C595008ADA2E /* HeaderView.swift */,
 				419C30E22A4B79DF00BB1EE6 /* SurahCollectionViewCell.swift */,
+				41CD48C32A63433A00101267 /* HeaderForTable.swift */,
 				41FB394A2A61EC5E008ADA2E /* SurahTableViewCell.swift */,
 			);
 			path = Views;
@@ -390,7 +394,6 @@
 			children = (
 				411127032A3E4914000ABD7D /* AppDelegate.swift */,
 				411127052A3E4914000ABD7D /* SceneDelegate.swift */,
-				411127112A3E4916000ABD7D /* Info.plist */,
 				4111270C2A3E4916000ABD7D /* Assets.xcassets */,
 				4111270E2A3E4916000ABD7D /* LaunchScreen.storyboard */,
 				411127092A3E4914000ABD7D /* Main.storyboard */,
@@ -499,6 +502,7 @@
 				411127082A3E4914000ABD7D /* ViewController.swift in Sources */,
 				41E145862A5B290B0029D446 /* BookViewController.swift in Sources */,
 				417981A42A5D8096000709EA /* Video.swift in Sources */,
+				41CD48C42A63433A00101267 /* HeaderForTable.swift in Sources */,
 				41C270F72A5DFBBD009E874A /* ListAudioViewController.swift in Sources */,
 				419C30DF2A49C8FA00BB1EE6 /* SurahViewModel.swift in Sources */,
 				41DC4D6B2A41B25F0009F119 /* SurahTime.swift in Sources */,

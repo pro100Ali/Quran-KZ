@@ -14,11 +14,17 @@ class HeaderView: UIView {
     var delegate: EachSurah?
     
     private var viewModel: SurahViewModel!
+    
+    var selectedIndex: IndexPath?
 
+    
+    
     lazy private var mainView: UIView = {
        let view = UIView()
         return view
     }()
+    
+    
 
     
     lazy private var collection: UICollectionView  = {
@@ -28,12 +34,14 @@ class HeaderView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(SurahCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.allowsMultipleSelection = false
+
         return collectionView
     }()
     
     func callToViewModelForUIUpdate() {
         
-        self.viewModel = SurahViewModel()
+        viewModel = SurahViewModel()
         self.viewModel.bindViewModelToController = {
         self.updateDataSource()
         }
@@ -82,28 +90,37 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SurahCollectionViewCell else { return UICollectionViewCell() }
         cell.label.text = arrayOfSurahs[indexPath.row].name_simple
+
+        // Reset the cell's state
+        if indexPath == selectedIndex {
+            cell.label.textColor = .red
+        } else {
+            cell.label.textColor = Color.shared.greenRect
+        }
+
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SurahCollectionViewCell
 
-//        APICaller.shared.getInfoChapters(with: arrayOfSurahs[indexPath.row].id!) { res in
-//            switch res {
-//            case .success(let success):
-//                    DispatchQueue.main.async {
-//
-//                        self.text.text = success[indexPath.row].verse_key
-//                }
-//            case .failure(let failure):
-//                print(failure)
-//            }
-//        }
-      
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { 
+        // Store the selected index
+        selectedIndex = indexPath
+
+        let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell
+        cell?.label.textColor = .red
+
         delegate?.showTheSurah(arrayOfSurahs[indexPath.row])
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell
+        cell?.label.textColor = Color.shared.greenRect
+
+        // Remove the selected index if it is deselected
+        if selectedIndex == indexPath {
+            selectedIndex = nil
+        }
 
     }
 }
