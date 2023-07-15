@@ -66,11 +66,6 @@ class AudioCell: UICollectionViewCell {
             make.leading.equalTo(poster.snp.trailing).offset(10)
             make.centerY.equalTo(poster)
         }
-//        desc.snp.makeConstraints { make in
-//            make.top.equalTo(label.snp.bottom).offset(5)
-//            make.leading.equalTo(label)
-//            make.trailing.equalToSuperview().inset(10)
-//        }
     }
     
     func updateUI() {

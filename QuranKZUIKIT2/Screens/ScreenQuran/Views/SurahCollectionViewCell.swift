@@ -9,7 +9,6 @@ import UIKit
 
 class SurahCollectionViewCell: UICollectionViewCell {
 
-    
     lazy private var rectView: UIView = {
        let view = UIView()
         view.backgroundColor = .gray
