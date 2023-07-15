@@ -94,29 +94,28 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.label.text = arrayOfSurahs[indexPath.row].name_simple
 
         // Reset the cell's state
-        if indexPath == selectedIndex {
-            cell.label.textColor = .red
-        } else {
-            cell.label.textColor = Color.shared.greenRect
-        }
+        cell.label.textColor = (indexPath == selectedIndex) ? UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00) : .black
+        cell.line.isHidden = (indexPath == selectedIndex) ? false : true
+        
 
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Store the selected index
         selectedIndex = indexPath
 
         let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell
-        cell?.label.textColor = .red
+        cell?.label.textColor = UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00)
+        cell?.line.isHidden = false
 
         delegate?.showTheSurah(arrayOfSurahs[indexPath.row])
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? SurahCollectionViewCell
-        cell?.label.textColor = Color.shared.greenRect
-
+        cell?.label.textColor = .black
+        cell?.line.isHidden = true
         // Remove the selected index if it is deselected
         if selectedIndex == indexPath {
             selectedIndex = nil
