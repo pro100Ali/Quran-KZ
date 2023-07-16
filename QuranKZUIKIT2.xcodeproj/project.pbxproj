@@ -170,13 +170,21 @@
 			path = Videos;
 			sourceTree = "<group>";
 		};
+		419AF1EC2A649D3B00355E2B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				419C30E22A4B79DF00BB1EE6 /* SurahCollectionViewCell.swift */,
+				41FB394A2A61EC5E008ADA2E /* SurahTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		419C30E52A4B7B6400BB1EE6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				41FB39462A61C595008ADA2E /* HeaderView.swift */,
-				419C30E22A4B79DF00BB1EE6 /* SurahCollectionViewCell.swift */,
 				41CD48C32A63433A00101267 /* HeaderForTable.swift */,
-				41FB394A2A61EC5E008ADA2E /* SurahTableViewCell.swift */,
+				419AF1EC2A649D3B00355E2B /* Cells */,
 				416F620C2A64801B00162A4E /* SurahFlowLayout.swift */,
 			);
 			path = Views;

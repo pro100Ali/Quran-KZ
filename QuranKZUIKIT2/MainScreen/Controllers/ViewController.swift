@@ -9,36 +9,6 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
-//
-//    lazy private var greenRect: UIView = {
-//       let view = UIView()
-//        view.backgroundColor = UIColor(red: 0.33, green: 0.73, blue: 0.62, alpha: 1.00)
-//        return view
-//    }()
-    
-//    lazy private var redRect: UIView = {
-//       let view = UIView()
-//        view.backgroundColor = UIColor(red: 0.93, green: 0.45, blue: 0.37, alpha: 1.00)
-//        return view
-//    }()
-//    lazy private var purpleRect: UIView = {
-//       let view = UIView()
-//        view.backgroundColor = UIColor(red: 0.60, green: 0.40, blue: 0.71, alpha: 1.00)
-//        return view
-//    }()
-//
-//    lazy private var yellowRect: UIView = {
-//       let view = UIView()
-//        view.backgroundColor = UIColor(red: 0.96, green: 0.80, blue: 0.33, alpha: 1.00)
-//
-//        return view
-//    }()
-//
-//    lazy private var blueRect: UIView = {
-//       let view = UIView()
-//        view.backgroundColor = UIColor(red: 0.30, green: 0.67, blue: 0.82, alpha: 1.00)
-//        return view
-//    }()
     
     lazy private var firstText: UILabel = {
        let label = UILabel()
@@ -93,19 +63,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         view.backgroundColor = .white
         [greenRect, redRect, purpleRect, yellowRect, blueRect].forEach{ view.addSubview($0) }
-//        greenRect.addSubview(firstText)
-//        redRect.addSubview(timeText)
-//        purpleRect.addSubview(bookText)
-//        yellowRect.addSubview(suraText)
-//        setupConstraints()
-        
-//        view.addSubview(gr    eenRect)
         
      
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickSurah(_:)))
         tapGesture.delegate = self
         greenRect.addGestureRecognizer(tapGesture)
-        
         
         let tapTime = UITapGestureRecognizer(target: self, action: #selector(clickTime(_:)))
         tapTime.delegate = self
@@ -130,7 +92,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
  
     @objc func clickSurah(_ sender: UIView) {
-        print("You clicked on view")
         let vc = QuranViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
