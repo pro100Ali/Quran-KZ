@@ -44,6 +44,8 @@ class QuranViewController: UIViewController {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SurahTableViewCell.self, forCellReuseIdentifier: "cell")
         table.backgroundColor = .white
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 44.0 // set to whatever your "average" cell height
         table.layer.cornerRadius = 10
         return table
     }()
@@ -95,7 +97,7 @@ class QuranViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(headerView.snp.bottom).offset(10)
-            make.height.equalToSuperview()
+                make.bottom.equalToSuperview()
         }
     }
     
@@ -115,9 +117,7 @@ extension QuranViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        330
-    }
+
     
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        if indexPath.row + 1 == arrayOfSurahs.count {
@@ -132,6 +132,7 @@ extension QuranViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 80
     }
+    
 }
 
 extension QuranViewController: EachSurah {

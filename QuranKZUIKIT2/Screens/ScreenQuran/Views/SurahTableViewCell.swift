@@ -10,6 +10,7 @@ import SnapKit
 
 class SurahTableViewCell: UITableViewCell {
     
+    
     lazy private  var text: UILabel = {
         let text = UILabel()
         text.text = "Hello"
@@ -74,12 +75,12 @@ class SurahTableViewCell: UITableViewCell {
         textArabic.snp.makeConstraints { make in
             make.top.equalTo(text.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(10)
-
-            
         }
         arabicText.snp.makeConstraints { make in
             make.top.equalTo(textArabic.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(20) // Add bottom constraint
         }
     }
+
 }
