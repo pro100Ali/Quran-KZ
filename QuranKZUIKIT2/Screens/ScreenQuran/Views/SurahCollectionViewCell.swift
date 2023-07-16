@@ -51,11 +51,12 @@ class SurahCollectionViewCell: UICollectionViewCell {
         rectView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        label.snp.makeConstraints { make in                make.center.equalToSuperview()
+        label.snp.makeConstraints { make in
+            make.center.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.9)
         }
         line.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(10)
+            make.bottom.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.8)
             make.centerX.equalToSuperview()
             make.height.equalTo(2)
