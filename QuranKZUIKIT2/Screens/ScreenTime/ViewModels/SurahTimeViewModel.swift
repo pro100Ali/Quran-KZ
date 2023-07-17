@@ -26,16 +26,9 @@ class SurahTimeViewModel: NSObject {
         }
     }
     
-    private(set) var currentSurah : NameSurah! {
-        didSet {
-            self.changeBack()
-        }
-    }
-    
-    
+
     var bindViewModelToController: (() -> ()) = {}
     
-    var changeBack: (() -> ()) = {}
     
     override init() {
         super.init()
@@ -51,7 +44,7 @@ class SurahTimeViewModel: NSObject {
                 
                 DispatchQueue.main.async { [self] in
                     self.empData = success
-                    self.currentSura = .besin
+//                    self.currentSura = .ekinti
                     configureArray()
                 }
             case .failure(let failure):
@@ -110,78 +103,78 @@ class SurahTimeViewModel: NSObject {
         arrayInt.sort()
     }
     
-    @objc func updateRemainingTime(timer: Timer) {
-          guard let namazTimes = timer.userInfo as? [String] else {
-              return
-          }
-          
-          let remainingTime = getNextNamazTime(namazTimes: namazTimes)
-//          label.text = "Remaining time to next Namaz: \(remainingTime)"
-        
-      }
+//    @objc func updateRemainingTime(timer: Timer) {
+//          guard let namazTimes = timer.userInfo as? [String] else {
+//              return
+//          }
+//          
+//          let remainingTime = getNextNamazTime(namazTimes: namazTimes)
+////          label.text = "Remaining time to next Namaz: \(remainingTime)"
+//        
+//      }
     
     deinit {
           timer?.invalidate()
       }
 
     
-    func getNextNamazTime(namazTimes: [String]) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        
-        let currentTime = Date()
-        
-        let currentNamazTimes = namazTimes.map { dateFormatter.date(from: $0)! }
-        let calendar = Calendar.current
-//        let originalDate = dateFormatter.date(from: originalTime)! // Original time as a date
-        var currentNamazTime2: [Date] = []
-        
-        for i in currentNamazTimes {
-            
-            let originalDate = i
-            
-            let originalHour = calendar.component(.hour, from: originalDate)
-            let originalMinute = calendar.component(.minute, from: originalDate)
-            let originalSecond = calendar.component(.second, from: originalDate)
-
-
-            let currentYear = calendar.component(.year, from: currentTime)
-            let currentMonth = calendar.component(.month, from: currentTime)
-            let currentDay = calendar.component(.day, from: currentTime)
-            
-            var newDateComponents = DateComponents()
-            newDateComponents.year = currentYear
-            newDateComponents.day = currentDay
-            newDateComponents.month = currentMonth
-            newDateComponents.hour = originalHour
-            newDateComponents.minute = originalMinute
-            newDateComponents.second = originalSecond
-            let newDate = calendar.date(from: newDateComponents)!
-
-            currentNamazTime2.append(newDate)
-
-        }
-
-     
-        let nextNamazTime: Date
-        
-        if let nextTime = currentNamazTime2.first(where: { $0 > currentTime  }) {
-            
-            nextNamazTime = nextTime
-        } else {
-
-            let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: currentTime)!
-            nextNamazTime = Calendar.current.date(bySettingHour: currentNamazTimes[0].hour, minute: currentNamazTimes[0].minute, second: 0, of: nextDay)!
-        }
-                                                                
-        let remainingTime = nextNamazTime.timeIntervalSince(currentTime)
-        let hours = Int(remainingTime) / 3600
-        let minutes = (Int(remainingTime) % 3600) / 60
-        let seconds = Int(remainingTime) % 60
-        
-        
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-    }
+//    func getNextNamazTime(namazTimes: [String]) -> String {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm"
+//
+//        let currentTime = Date()
+//
+//        let currentNamazTimes = namazTimes.map { dateFormatter.date(from: $0)! }
+//        let calendar = Calendar.current
+////        let originalDate = dateFormatter.date(from: originalTime)! // Original time as a date
+//        var currentNamazTime2: [Date] = []
+//
+//        for i in currentNamazTimes {
+//
+//            let originalDate = i
+//
+//            let originalHour = calendar.component(.hour, from: originalDate)
+//            let originalMinute = calendar.component(.minute, from: originalDate)
+//            let originalSecond = calendar.component(.second, from: originalDate)
+//
+//
+//            let currentYear = calendar.component(.year, from: currentTime)
+//            let currentMonth = calendar.component(.month, from: currentTime)
+//            let currentDay = calendar.component(.day, from: currentTime)
+//
+//            var newDateComponents = DateComponents()
+//            newDateComponents.year = currentYear
+//            newDateComponents.day = currentDay
+//            newDateComponents.month = currentMonth
+//            newDateComponents.hour = originalHour
+//            newDateComponents.minute = originalMinute
+//            newDateComponents.second = originalSecond
+//            let newDate = calendar.date(from: newDateComponents)!
+//
+//            currentNamazTime2.append(newDate)
+//
+//        }
+//
+//
+//        let nextNamazTime: Date
+//
+//        if let nextTime = currentNamazTime2.first(where: { $0 > currentTime  }) {
+//
+//            nextNamazTime = nextTime
+//        } else {
+//
+//            let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: currentTime)!
+//            nextNamazTime = Calendar.current.date(bySettingHour: currentNamazTimes[0].hour, minute: currentNamazTimes[0].minute, second: 0, of: nextDay)!
+//        }
+//
+//        let remainingTime = nextNamazTime.timeIntervalSince(currentTime)
+//        let hours = Int(remainingTime) / 3600
+//        let minutes = (Int(remainingTime) % 3600) / 60
+//        let seconds = Int(remainingTime) % 60
+//
+//
+//        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+//    }
     
     func defineCurrentSura() {
         

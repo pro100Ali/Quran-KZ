@@ -58,7 +58,6 @@ class TimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.shared.dhuhr
-//        currentSura = .besin
         
      
         view.addSubview(mainView)
@@ -70,10 +69,13 @@ class TimeViewController: UIViewController {
         callToViewModelForUIUpdate()
         setupConstraints()
         navigationController?.navigationBar.tintColor = UIColor.white
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(changeTheView(_:)), name: Notification.Name("colorChanged"), object: nil)
+        sunView.delegate = self
+
    
-        switch currentSura {
+    }
+    
+    func changeTheBackground(_ current: NameSurah) {
+        switch current {
         case .tan:
             mainView.backgroundColor = Color.shared.fajr
         case .kun:
@@ -86,39 +88,13 @@ class TimeViewController: UIViewController {
             mainView.backgroundColor = Color.shared.maghrib
         case .kuptan:
             mainView.backgroundColor = Color.shared.isha
-        case .none:
-            mainView.backgroundColor = Color.shared.isha
-
+     
+            
         }
+        
     }
+        
     
-    @objc func changeTheView(_ notification: NSNotification) {
-        if let dict = notification.userInfo as NSDictionary? {
-            if let name = dict["currentSurah"] as? NameSurah {
-                self.currentSura = name
-                print(currentSura)
-                switch currentSura {
-                case .tan:
-                    mainView.backgroundColor = Color.shared.fajr
-                case .kun:
-                    mainView.backgroundColor = Color.shared.sunrise
-                case .besin:
-                    mainView.backgroundColor = Color.shared.dhuhr
-                case .ekinti:
-                    mainView.backgroundColor = Color.shared.asr
-                case .sham:
-                    mainView.backgroundColor = Color.shared.maghrib
-                case .kuptan:
-                    mainView.backgroundColor = Color.shared.isha
-                case .none:
-                    mainView.backgroundColor = Color.shared.isha
-
-                }
-                NotificationCenter.default.removeObserver(self)
-
-            }
-        }
-    }
     
     
     @objc func callToViewModelForUIUpdate() {
@@ -127,12 +103,7 @@ class TimeViewController: UIViewController {
         self.viewModel.bindViewModelToController = {
              self.updateDataSource()
         }
-        
-        self.viewModel.changeBack = {
-            self.currentSura = self.viewModel.currentSurah
-            print(self.currentSura as Any)
-        }
-        
+                
     }
     
     @objc func updateDataSource() {
@@ -142,7 +113,6 @@ class TimeViewController: UIViewController {
     }
     
     
-
     
     func configureTheApi(_ element: Time) {
         self.fajrTime.configure(time: element.bamdat!)
@@ -157,7 +127,6 @@ class TimeViewController: UIViewController {
     
     func setupConstraints() {
         sunView.snp.makeConstraints { make in
-//                        make.height.equalTo(50)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview().inset(150)
             make.top.equalToSuperview().inset(90)
@@ -212,5 +181,14 @@ class TimeViewController: UIViewController {
         }
 
     }
+    
+}
+
+extension TimeViewController: ChangingView {
+    
+    func changeTheView(_ current: NameSurah) {
+        changeTheBackground(current)
+    }
+    
     
 }

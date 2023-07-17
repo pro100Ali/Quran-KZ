@@ -17,16 +17,18 @@ enum NameSurah {
     case kuptan
 }
 
+protocol ChangingView {
+    func changeTheView(_ current: NameSurah)
+}
+
+
 class SunView: UIView {
     
-//    var timeSurah: Int?
     var viewModel: SurahTimeViewModel = SurahTimeViewModel()
+    var isFirst = true
+    var delegate: ChangingView?
+    var currentSura: NameSurah!
     
-    private(set) var currentSura: NameSurah! {
-        didSet {
-            self.changeBack()
-        }
-    }
     var changeBack: (() -> ()) = {}
     
     var namazTimes: [String] = []
@@ -74,7 +76,6 @@ class SunView: UIView {
         return text
     }()
     
-    var info = [String: NameSurah]()
 
     
     override init(frame: CGRect) {
@@ -88,7 +89,6 @@ class SunView: UIView {
         setupConstraints()
 
         checkForCurrentSurah()
-        print(currentSura)
 
     }
     
@@ -121,9 +121,6 @@ class SunView: UIView {
         
         self.namazTimes = namazTimes
         
-        let remainingTime = getNextNamazTime(namazTimes: namazTimes)
-
-        
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateRemainingTime), userInfo: namazTimes, repeats: true)
 
     }
@@ -146,10 +143,11 @@ class SunView: UIView {
     func getNextNamazTime(namazTimes: [String]) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        
-        let currentTime = Date()
+        dateFormatter.timeZone = TimeZone(identifier: "UTC+05:00")
+        let utcOffsetInSeconds = 5 * 60 * 60  // Convert 5 hours to seconds
+        let currentTime2 = Date()
+        let currentTime = currentTime2.addingTimeInterval(TimeInterval(utcOffsetInSeconds))
         var currentNamazTime2: [Date] = []
-        
         for timeString in namazTimes {
             var formattedTimeString = timeString
             
@@ -178,7 +176,7 @@ class SunView: UIView {
                 newDateComponents.second = originalSecond
                 
                 if let newDate = calendar.date(from: newDateComponents) {
-                    currentNamazTime2.append(newDate)
+                    currentNamazTime2.append(newDate.addingTimeInterval(TimeInterval(5*60*60)))
                 } else {
                     print("Failed to create a new date for time: \(timeString)")
                 }
@@ -207,37 +205,20 @@ class SunView: UIView {
                 currentSura = .tan
             }
             
-            let currentSura:[String: NameSurah] = ["currentSura": currentSura]
-            
-            NotificationCenter.default.post(name: Notification.Name("colorChanged"), object: nil, userInfo: currentSura)
-            
+            delegate?.changeTheView(currentSura)
         }
         
         if let nextTime = currentNamazTime2.first(where: { $0 > currentTime  }) {
-               nextNamazTime = nextTime
-            
-            if let index = currentNamazTime2.firstIndex(of: nextNamazTime) {
-                  switch index {
-                  case 0:
-                      currentSura = .tan
-                  case 1:
-                      currentSura = .kun
-                  case 2:
-                      currentSura = .besin
-                  case 3:
-                      currentSura = .ekinti
-                  case 4:
-                      currentSura = .sham
-                  default:
-                      break
-                  }
-              }
-            
-           } else {
-            // The next namaz time is the first namaz of the next day
-            let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: currentTime)!
-            nextNamazTime = Calendar.current.date(bySettingHour: currentNamazTime2[0].hour, minute: currentNamazTime2[0].minute, second: 0, of: nextDay)!
-        }
+             nextNamazTime = nextTime
+
+             // Find the index of the next namaz time
+             
+         } else {
+             // The next namaz time is the first namaz of the next day
+             nextNamazTime = currentNamazTime2[0]
+             // Assign the current sura based on the index
+             currentSura = getSuraFromIndex(0)
+         }
                                                                 
         let remainingTime = nextNamazTime.timeIntervalSince(currentTime)
         let hours = Int(remainingTime) / 3600
@@ -248,7 +229,6 @@ class SunView: UIView {
         if remainingTime <= 0 {
             // Handle the change to the next namaz time here
             // You can update the current namaz time, trigger a callback, or perform any other necessary action
-            print("ASdasadsdas")
             // For example, you can set the current namaz time to the next namaz time
             let index = currentNamazTime2.firstIndex(of: nextNamazTime)
             if let nextIndex = index?.advanced(by: 1), nextIndex < currentNamazTime2.count {
@@ -257,12 +237,42 @@ class SunView: UIView {
                 // The next namaz time is the first namaz of the next day
                 let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: nextNamazTime)!
                 nextNamazTime = Calendar.current.date(bySettingHour: currentNamazTime2[0].hour, minute: currentNamazTime2[0].minute, second: 0, of: nextDay)!
+                
             }
+            
         }
+        if let index = currentNamazTime2.firstIndex(of: nextNamazTime) {
+            if isFirst {
+                currentSura = getSuraFromIndex(index-1)
+                delegate?.changeTheView(currentSura)
+                isFirst = false
+            }
+        
+            
+        }
+
         
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
-   
+    
+    private func getSuraFromIndex(_ index: Int) -> NameSurah {
+        switch index {
+        case 0:
+            return .kuptan
+        case 1:
+            return .tan
+        case 2:
+            return .kun
+        case 3:
+            return .besin
+        case 4:
+            return .ekinti
+        case 5:
+            return .sham
+        default:
+            return .sham
+        }
+    }
     
     func setupConstraints() {
         

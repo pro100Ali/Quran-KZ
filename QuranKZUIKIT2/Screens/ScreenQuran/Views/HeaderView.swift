@@ -97,7 +97,6 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
         UIView.transition(with: cell, duration: 0.8, options: .transitionCrossDissolve, animations: { [self] in
             cell.label.textColor = (indexPath == selectedIndex) ? UIColor(red: 0.30, green: 0.64, blue: 0.58, alpha: 1.00) : .black
             cell.line.isHidden = (indexPath == selectedIndex) ? false : true
-                // Additional changes for selected state
             }, completion: nil)
         
       

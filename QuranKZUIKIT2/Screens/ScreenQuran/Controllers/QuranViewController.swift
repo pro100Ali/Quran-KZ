@@ -17,7 +17,7 @@ class QuranViewController: UIViewController {
     var arrayOfSurahs: [SurahVerses] = []
     private var viewModel: SurahDescriptionViewModel!
     var str: [String] = []
-    var index: Int = 2 {
+    var index: Int = 1 {
         didSet {
             callToViewModelForUIUpdate()
         }

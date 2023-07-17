@@ -16,7 +16,6 @@
 		411127212A3E499F000ABD7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 411127202A3E499F000ABD7D /* SnapKit */; };
 		411127272A3E49FA000ABD7D /* Surah.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411127262A3E49FA000ABD7D /* Surah.swift */; };
 		411127292A3E4A13000ABD7D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411127282A3E4A13000ABD7D /* APICaller.swift */; };
-		411CADD22A582CD500EC7415 /* RemainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CADD12A582CD500EC7415 /* RemainingViewController.swift */; };
 		412BDD6A2A4CD1A400587AC4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412BDD692A4CD1A400587AC4 /* CustomView.swift */; };
 		415D543D2A40C9B4007BE559 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D543C2A40C9B4007BE559 /* AudioViewController.swift */; };
 		416F620D2A64801B00162A4E /* SurahFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F620C2A64801B00162A4E /* SurahFlowLayout.swift */; };
@@ -63,7 +62,6 @@
 		411127112A3E4916000ABD7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		411127262A3E49FA000ABD7D /* Surah.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Surah.swift; sourceTree = "<group>"; };
 		411127282A3E4A13000ABD7D /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
-		411CADD12A582CD500EC7415 /* RemainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingViewController.swift; sourceTree = "<group>"; };
 		412BDD692A4CD1A400587AC4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		415D543C2A40C9B4007BE559 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		416F620C2A64801B00162A4E /* SurahFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahFlowLayout.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				41DC4D6C2A41B37F0009F119 /* TimeViewController.swift */,
-				411CADD12A582CD500EC7415 /* RemainingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -526,7 +523,6 @@
 				411127062A3E4914000ABD7D /* SceneDelegate.swift in Sources */,
 				41C270F92A5DFC93009E874A /* AudioCell.swift in Sources */,
 				41FB39472A61C595008ADA2E /* HeaderView.swift in Sources */,
-				411CADD22A582CD500EC7415 /* RemainingViewController.swift in Sources */,
 				41D8952C2A5F359800014BA2 /* AudioViewModel.swift in Sources */,
 				412BDD6A2A4CD1A400587AC4 /* CustomView.swift in Sources */,
 				415D543D2A40C9B4007BE559 /* AudioViewController.swift in Sources */,
