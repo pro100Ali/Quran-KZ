@@ -78,18 +78,24 @@ class TimeViewController: UIViewController {
         switch current {
         case .tan:
             mainView.backgroundColor = Color.shared.fajr
+            sunView.configureImage("sunrise")
         case .kun:
             mainView.backgroundColor = Color.shared.sunrise
+            sunView.configureImage("sun.and.horizon")
         case .besin:
             mainView.backgroundColor = Color.shared.dhuhr
+            sunView.configureImage("sun.max")
         case .ekinti:
             mainView.backgroundColor = Color.shared.asr
+            sunView.configureImage("sun.haze")
         case .sham:
             mainView.backgroundColor = Color.shared.maghrib
+            sunView.configureImage("sunset.fill")
         case .kuptan:
             mainView.backgroundColor = Color.shared.isha
-     
-            
+//            view.backgroundColor = Color.shared.isha
+            sunView.configureImage("moon.stars")
+
         }
         
     }
@@ -127,9 +133,9 @@ class TimeViewController: UIViewController {
     
     func setupConstraints() {
         sunView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().inset(16)
             make.trailing.equalToSuperview().inset(150)
-            make.top.equalToSuperview().inset(90)
+            make.top.equalToSuperview().inset(50)
         }
         mainView.snp.makeConstraints { make in
             make.leading.bottom.trailing.equalToSuperview()

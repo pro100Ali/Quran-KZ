@@ -51,7 +51,7 @@ class SunView: UIView {
     
     lazy private var textLabel: UILabel = {
         let text = UILabel()
-        text.text = "Уакыттын шыгуы"
+        text.text = "Уақыттың шығуы".uppercased()
         text.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         text.textColor = .white
 
@@ -60,12 +60,19 @@ class SunView: UIView {
     
     lazy private var timeLabel: UILabel = {
        let text = UILabel()
-        text.text = "02:16"
+        text.text = "00:00:00"
         text.textColor = .white
-        text.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        text.font = UIFont.systemFont(ofSize: 35, weight: .semibold)
 
         return text
     }()
+    
+    lazy private var line: UIView = {
+       let text = UIView()
+        text.backgroundColor = .white
+        return text
+    }()
+    
     
     lazy private var randomDuga: UILabel = {
        let text = UILabel()
@@ -85,6 +92,7 @@ class SunView: UIView {
         backColor.addSubview(theSun)
         backColor.addSubview(timeLabel)
         backColor.addSubview(textLabel)
+        backColor.addSubview(line)
         backColor.addSubview(randomDuga)
         setupConstraints()
 
@@ -94,6 +102,10 @@ class SunView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureImage(_ image: String) {
+        theSun.image = UIImage(systemName: image)
     }
     
     func checkForCurrentSurah() {
@@ -280,8 +292,8 @@ class SunView: UIView {
             make.edges.equalToSuperview()
         }
         theSun.snp.makeConstraints { make in
-            make.height.equalTo(80)
-            make.width.equalTo(80)
+            make.height.equalTo(60)
+            make.width.equalTo(60)
             make.centerX.equalToSuperview()
         }
         
@@ -292,11 +304,15 @@ class SunView: UIView {
         
         timeLabel.snp.makeConstraints { make in
             make.top.equalTo(textLabel.snp.bottom).offset(15)
-            make.centerX.equalToSuperview()
         }
-        
-        randomDuga.snp.makeConstraints { make in
+        line.snp.makeConstraints { make in
             make.top.equalTo(timeLabel.snp.bottom).offset(15)
+            make.width.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.height.equalTo(2)
+        }
+        randomDuga.snp.makeConstraints { make in
+            make.top.equalTo(line.snp.bottom).offset(15)
             make.width.equalToSuperview()
         }
         

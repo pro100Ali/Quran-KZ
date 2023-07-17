@@ -44,7 +44,6 @@ class SurahTimeViewModel: NSObject {
                 
                 DispatchQueue.main.async { [self] in
                     self.empData = success
-//                    self.currentSura = .ekinti
                     configureArray()
                 }
             case .failure(let failure):
