@@ -24,6 +24,10 @@ class Color {
     var purpleRect = UIColor(red: 0.60, green: 0.40, blue: 0.71, alpha: 1.00)
     var yellowRect = UIColor(red: 0.96, green: 0.80, blue: 0.33, alpha: 1.00)
     var blueRect = UIColor(red: 0.30, green: 0.67, blue: 0.82, alpha: 1.00)
+    
+    static func configureColorBar(_ color: UIColor, view: UIView) {
+        view.backgroundColor = color.withAlphaComponent(0.9)
+    }
 }
 
 struct Font {

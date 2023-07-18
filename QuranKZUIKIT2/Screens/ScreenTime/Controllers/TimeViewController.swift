@@ -79,21 +79,30 @@ class TimeViewController: UIViewController {
         case .tan:
             mainView.backgroundColor = Color.shared.fajr
             sunView.configureImage("sunrise")
+            Color.configureColorBar(Color.shared.fajr, view: view)
         case .kun:
             mainView.backgroundColor = Color.shared.sunrise
             sunView.configureImage("sun.and.horizon")
+            Color.configureColorBar(Color.shared.sunrise, view: view)
+
         case .besin:
             mainView.backgroundColor = Color.shared.dhuhr
             sunView.configureImage("sun.max")
+            Color.configureColorBar(Color.shared.dhuhr, view: view)
+
         case .ekinti:
             mainView.backgroundColor = Color.shared.asr
             sunView.configureImage("sun.haze")
+            Color.configureColorBar(Color.shared.asr, view: view)
+
         case .sham:
             mainView.backgroundColor = Color.shared.maghrib
             sunView.configureImage("sunset.fill")
+            Color.configureColorBar(Color.shared.maghrib, view: view)
+
         case .kuptan:
             mainView.backgroundColor = Color.shared.isha
-//            view.backgroundColor = Color.shared.isha
+            Color.configureColorBar(Color.shared.isha, view: view)
             sunView.configureImage("moon.stars")
 
         }
