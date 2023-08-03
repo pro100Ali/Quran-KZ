@@ -10,6 +10,9 @@ import SnapKit
 
 class BookViewController: UIViewController {
     
+    private var books: [Book] = []
+    let viewModel = BookViewModel()
+    let viewFire = BookFireStore()
     private let spacing:CGFloat = 16.0
 
     lazy private var collection: UICollectionView  = {
@@ -35,6 +38,32 @@ class BookViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         navigationController?.navigationBar.tintColor = UIColor.white
+//        viewModel.getAll { res in
+//            switch res {c
+//            case .success(let success):
+//                print(success)
+//                DispatchQueue.main.async {
+//                    self.books = success
+//                    self.collection.reloadData()
+//                }
+//
+//            case .failure(let failure):
+//                print(failure)
+//            }
+//        }
+        viewFire.getBook(completion: { res in
+            switch res {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    self.books = success
+                    self.collection.reloadData()
+                }
+                
+            case .failure(let failure):
+                print(failure)
+            }
+        })
+
     }
     
     func setupConstraints() {
@@ -49,14 +78,24 @@ class BookViewController: UIViewController {
 
 extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return books.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BookCell
         cell.backgroundColor = .yellow
         cell.layer.cornerRadius = 10
+        cell.configure(books[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ContentViewController()
+
+        vc.configure(book: books[indexPath.row])
+        self.present(vc, animated: true, completion: nil)
+        print("Adsdas")
+        
     }
     
     

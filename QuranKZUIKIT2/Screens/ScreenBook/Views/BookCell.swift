@@ -7,11 +7,11 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
+
 
 class BookCell: UICollectionViewCell {
-    
-    
-    
+
     lazy private var rect: UIView = {
        let rect = UIView()
         rect.backgroundColor = .lightGray
@@ -30,6 +30,8 @@ class BookCell: UICollectionViewCell {
     lazy private var titleOfBook: UILabel = {
        let label = UILabel()
         label.text = "Title of Book"
+        label.numberOfLines = 0
+        label.sizeToFit()
         label.textAlignment = .center
         return label
     }()
@@ -54,6 +56,14 @@ class BookCell: UICollectionViewCell {
         }
         titleOfBook.snp.makeConstraints { make in
             make.top.equalTo(image.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(image.snp.width)
         }
+    }
+    
+    func configure(_ book: Book) {
+        self.titleOfBook.text = book.name
+        self.image.sd_setImage(with: URL(string:book.image))
+        print(URL(string:book.image))
     }
 }

@@ -24,7 +24,7 @@ protocol ChangingView {
 
 class SunView: UIView {
     
-    var viewModel: SurahTimeViewModel = SurahTimeViewModel()
+//    var viewModel: SurahTimeViewModel = SurahTimeViewModel()
     var isFirst = true
     var delegate: ChangingView?
     var currentSura: NameSurah!
@@ -142,8 +142,11 @@ class SunView: UIView {
               return
           }
           
-          let remainingTime = getNextNamazTime(namazTimes: namazTimes)
-          timeLabel.text = "\(remainingTime)"
+        DispatchQueue.main.async { [self] in
+            let remainingTime = getNextNamazTime(namazTimes: namazTimes)
+            timeLabel.text = "\(remainingTime)"
+        }
+          
       }
     
     
@@ -217,7 +220,10 @@ class SunView: UIView {
                 currentSura = .tan
             }
             
-            delegate?.changeTheView(currentSura)
+            DispatchQueue.main.async { [self] in
+                delegate?.changeTheView(currentSura)
+            }
+            
         }
         
         if let nextTime = currentNamazTime2.first(where: { $0 > currentTime  }) {
@@ -256,7 +262,9 @@ class SunView: UIView {
         if let index = currentNamazTime2.firstIndex(of: nextNamazTime) {
             if isFirst {
                 currentSura = getSuraFromIndex(index-1)
-                delegate?.changeTheView(currentSura)
+                DispatchQueue.main.async { [self] in
+                    delegate?.changeTheView(currentSura)
+                }
                 isFirst = false
             }
         

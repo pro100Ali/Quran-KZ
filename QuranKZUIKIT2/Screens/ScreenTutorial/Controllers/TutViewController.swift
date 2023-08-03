@@ -15,6 +15,7 @@ class TutViewController: UIViewController {
     var videos: [Video] = Video.fetchVideos()
     var player = AVPlayer()
     var playerViewController = AVPlayerViewController()
+    var viewModel = VideoViewModel()
     
     lazy private var collection: UICollectionView  = {
        let layout = UICollectionViewFlowLayout()
@@ -41,6 +42,7 @@ class TutViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         setupConstraints()
+        viewModel.getVideo(videoName: "Ali")
     }
     
     func playVideo(at indexPath: IndexPath) {

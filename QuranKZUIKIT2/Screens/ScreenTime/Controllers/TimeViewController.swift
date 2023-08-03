@@ -59,22 +59,24 @@ class TimeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Color.shared.dhuhr
         
-     
+        callToViewModelForUIUpdate()
+
         view.addSubview(mainView)
         mainView.addSubview(sunView)
 
         mainView.addSubview(commonView)
-        
+        sunView.delegate = self
+
         [fajrTime, sunriseTime, dhuhrTime, asrTime, maghribTime, ishaTime].forEach{ commonView.addSubview($0) }
-        callToViewModelForUIUpdate()
         setupConstraints()
         navigationController?.navigationBar.tintColor = UIColor.white
-        sunView.delegate = self
 
    
     }
     
     func changeTheBackground(_ current: NameSurah) {
+        
+        
         switch current {
         case .tan:
             mainView.backgroundColor = Color.shared.fajr

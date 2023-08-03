@@ -11,7 +11,7 @@ import AVFoundation
 
 class AudioViewController: UIViewController {
     
-    var audioPlayer: AVPlayer!
+    var audioPlayer: AVPlayer?
     
     var playerItem: AVPlayerItem?
     fileprivate let seekDuration: Float64 = 10
@@ -143,8 +143,9 @@ class AudioViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
            super.viewWillDisappear(animated)
-           
-        audioPlayer.pause() 
+        
+        guard let audio = audioPlayer else { return }
+        audio.pause()
        }
     
     func loadAudioFile(with url: String) {
@@ -190,6 +191,7 @@ class AudioViewController: UIViewController {
             }
         
         playbackSlider.addTarget(self, action: #selector(playbackSliderValueChanged(_:)), for: .valueChanged)
+        
         audioPlayer!.play()
 
           //check player has completed playing audio

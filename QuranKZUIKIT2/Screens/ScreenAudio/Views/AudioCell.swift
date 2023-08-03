@@ -18,7 +18,7 @@ class AudioCell: UICollectionViewCell {
     
     lazy private var poster: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "note  ")
+        image.image = UIImage(named: "123")
         return image
     }()
     
@@ -57,10 +57,10 @@ class AudioCell: UICollectionViewCell {
     
     func setupConstraints() {
         poster.snp.makeConstraints { make in
-            make.height.equalToSuperview().multipliedBy(0.5)
-            make.width.equalTo(60)
+            make.height.equalToSuperview().multipliedBy(0.8)
+            make.width.equalTo(70)
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(16)
+            make.leading.equalToSuperview().inset(8)
         }
         label.snp.makeConstraints { make in
             make.leading.equalTo(poster.snp.trailing).offset(10)

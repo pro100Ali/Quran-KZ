@@ -26,7 +26,8 @@ class QuranViewController: UIViewController {
     
     let headerView = HeaderView(frame: .zero)
     
-    let headerForTable = HeaderForTable(frame: .zero) 
+    let headerForTable = HeaderForTable(frame: .zero)
+    
     lazy private var lenta: UIView = {
         let rect = UIView()
         rect.backgroundColor = Color.shared.greenRect
@@ -40,6 +41,7 @@ class QuranViewController: UIViewController {
         text.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         return text
     }()
+    
     lazy private var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SurahTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -48,6 +50,7 @@ class QuranViewController: UIViewController {
         table.estimatedRowHeight = 44.0
         table.layer.cornerRadius = 10
         table.showsVerticalScrollIndicator = false
+        
         return table
     }()
     
@@ -59,10 +62,10 @@ class QuranViewController: UIViewController {
         headerView.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
+        headerView.delegate = self
         setupConstraints()
         
         callToViewModelForUIUpdate()
-        headerView.delegate = self
         navigationItem.title = "Quran"
         
         
