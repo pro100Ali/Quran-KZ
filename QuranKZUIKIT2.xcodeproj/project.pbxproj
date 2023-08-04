@@ -45,6 +45,7 @@
 		419C30E32A4B79E000BB1EE6 /* SurahCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C30E22A4B79DF00BB1EE6 /* SurahCollectionViewCell.swift */; };
 		419C30E82A4B824B00BB1EE6 /* SurahDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C30E72A4B824B00BB1EE6 /* SurahDescriptionViewModel.swift */; };
 		419D13862A689E5A00E2BE6C /* ManagerAlam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D13852A689E5A00E2BE6C /* ManagerAlam.swift */; };
+		41BEFFE82A7BC05200E7B9A3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 41BEFFE72A7BC05200E7B9A3 /* SkeletonView */; };
 		41C270F52A5DFB5E009E874A /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C270F42A5DFB5E009E874A /* Audio.swift */; };
 		41C270F72A5DFBBD009E874A /* ListAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C270F62A5DFBBD009E874A /* ListAudioViewController.swift */; };
 		41C270F92A5DFC93009E874A /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C270F82A5DFC93009E874A /* AudioCell.swift */; };
@@ -130,6 +131,7 @@
 				41DB5E1B2A3F56C900BAE2C8 /* Alamofire in Frameworks */,
 				4181622B2A7B9DC000B8E3F0 /* FirebaseStorage in Frameworks */,
 				418162232A7B9DC000B8E3F0 /* FirebaseAuth in Frameworks */,
+				41BEFFE82A7BC05200E7B9A3 /* SkeletonView in Frameworks */,
 				418162272A7B9DC000B8E3F0 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +484,7 @@
 				418162262A7B9DC000B8E3F0 /* FirebaseFirestore */,
 				418162282A7B9DC000B8E3F0 /* FirebaseFirestoreSwift */,
 				4181622A2A7B9DC000B8E3F0 /* FirebaseStorage */,
+				41BEFFE72A7BC05200E7B9A3 /* SkeletonView */,
 			);
 			productName = QuranKZUIKIT2;
 			productReference = 411127002A3E4914000ABD7D /* QuranKZUIKIT2.app */;
@@ -516,6 +519,7 @@
 				41DB5E192A3F56C900BAE2C8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4181621C2A7B923800B8E3F0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				418162212A7B9DC000B8E3F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				41BEFFE62A7BC05200E7B9A3 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 411127012A3E4914000ABD7D /* Products */;
 			projectDirPath = "";
@@ -834,6 +838,14 @@
 				kind = branch;
 			};
 		};
+		41BEFFE62A7BC05200E7B9A3 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		41DB5E192A3F56C900BAE2C8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -879,6 +891,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 418162212A7B9DC000B8E3F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		41BEFFE72A7BC05200E7B9A3 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41BEFFE62A7BC05200E7B9A3 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		41DB5E1A2A3F56C900BAE2C8 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

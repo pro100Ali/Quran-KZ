@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import SDWebImage
+import SkeletonView
 
 
 class BookCell: UICollectionViewCell {
@@ -16,6 +17,8 @@ class BookCell: UICollectionViewCell {
        let rect = UIView()
         rect.backgroundColor = .lightGray
         rect.layer.cornerRadius = 10
+        rect.isSkeletonable = true
+        rect.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
         return rect
     }()
     
@@ -23,7 +26,7 @@ class BookCell: UICollectionViewCell {
        let image = UIImageView()
         image.image = UIImage(named: "bookQuran")
         image.backgroundColor = .red
-
+        image.isSkeletonable = true
         return image
     }()
     
@@ -41,6 +44,7 @@ class BookCell: UICollectionViewCell {
         rect.addSubview(image)
         addSubview(titleOfBook)
         setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -64,6 +68,10 @@ class BookCell: UICollectionViewCell {
     func configure(_ book: Book) {
         self.titleOfBook.text = book.name
         self.image.sd_setImage(with: URL(string:book.image))
+        [self.rect, self.image].forEach {
+            $0.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+            $0.stopSkeletonAnimation()
+        }
         print(URL(string:book.image))
     }
 }

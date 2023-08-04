@@ -7,11 +7,11 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 
 class BookViewController: UIViewController {
     
     private var books: [Book] = []
-    let viewModel = BookViewModel()
     let viewFire = BookFireStore()
     private let spacing:CGFloat = 16.0
 
@@ -23,9 +23,7 @@ class BookViewController: UIViewController {
         collectionView.register(BookCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.showsHorizontalScrollIndicator = false
         layout.sectionInset = UIEdgeInsets(top: 30, left: 10, bottom: 50, right: 10)
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-             layout.minimumLineSpacing = 50
-//             layout.minimumInteritemSpacing = 100
+        layout.minimumLineSpacing = 50
         return collectionView
     }()
     
@@ -38,6 +36,7 @@ class BookViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         navigationController?.navigationBar.tintColor = UIColor.white
+        navigationItem.title = "Quran"
 //        viewModel.getAll { res in
 //            switch res {c
 //            case .success(let success):
@@ -76,14 +75,16 @@ class BookViewController: UIViewController {
 
 }
 
-extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSource, SkeletonCollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        prin
         return books.count
     }
     
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BookCell
-        cell.backgroundColor = .yellow
+        cell.backgroundColor = Color.shared.purpleRect
         cell.layer.cornerRadius = 10
         cell.configure(books[indexPath.row])
         return cell
